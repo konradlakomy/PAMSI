@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy Funkcje.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_funkcje_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Funkcje.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_funkcje_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="_funkcje_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kontenerach.">Funkcje.hh</a>&quot;</span>
+<a name="l00009"></a><a class="code" href="_funkcje_8cpp.html#a28651809a0ac6d2077fcc80d3fd8d2af">00009</a> <span class="keywordtype">int</span> <a class="code" href="_funkcje_8hh.html#a28651809a0ac6d2077fcc80d3fd8d2af" title="Definicja funkcji wczytującej dane do kontenera.">wczytaj</a>(vector &lt;int&gt;&amp; Tab, <span class="keywordtype">string</span> NazwaPliku) {
+<a name="l00010"></a>00010         <span class="keywordtype">int</span> x;
+<a name="l00011"></a>00011         ifstream StrmWe;
+<a name="l00012"></a>00012         StrmWe.open(NazwaPliku.c_str());
+<a name="l00013"></a>00013         <span class="keywordflow">if</span>(!StrmWe.is_open()) {
+<a name="l00014"></a>00014                 cerr &lt;&lt; <span class="stringliteral">&quot;!!! Plik nie zostal otwarty&quot;</span> &lt;&lt; endl; 
+<a name="l00015"></a>00015                 <span class="keywordflow">return</span> 1;
+<a name="l00016"></a>00016         }
+<a name="l00017"></a>00017         <span class="keywordflow">while</span>(!StrmWe.eof()) {
+<a name="l00018"></a>00018                 StrmWe&gt;&gt;x;
+<a name="l00019"></a>00019                 <span class="keywordflow">if</span> (StrmWe.fail()) {
+<a name="l00020"></a>00020                         StrmWe.clear();
+<a name="l00021"></a>00021                         StrmWe.ignore(numeric_limits&lt;int&gt;::max( ),<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00022"></a>00022                 } 
+<a name="l00023"></a>00023                 <span class="keywordflow">else</span> { 
+<a name="l00024"></a>00024                         Tab.push_back( x );
+<a name="l00025"></a>00025                 }
+<a name="l00026"></a>00026         }
+<a name="l00027"></a>00027         StrmWe.close();
+<a name="l00028"></a>00028 <span class="keywordflow">return</span> 0; 
+<a name="l00029"></a>00029 }
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="_funkcje_8cpp.html#afa796d5046e226ad8f3af7a7536ae99b">00031</a> <span class="keywordtype">void</span> <a class="code" href="_funkcje_8hh.html#afa796d5046e226ad8f3af7a7536ae99b" title="Definicja funkcji wykonujacej operacje mnożenia elementow kontenera.">pomnoz</a>(vector &lt;int&gt;&amp; Tab) {
+<a name="l00032"></a>00032         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  i = 1; i &lt; Tab.size(); i++ ) 
+<a name="l00033"></a>00033                 Tab[i]=Tab[i]*2;  
+<a name="l00034"></a>00034 }
+<a name="l00035"></a>00035 
+<a name="l00036"></a><a class="code" href="_funkcje_8cpp.html#a256a504f15a02f6d84458f98d3e0e897">00036</a> <span class="keywordtype">int</span> <a class="code" href="_funkcje_8hh.html#a256a504f15a02f6d84458f98d3e0e897" title="Definicja funkcji porównującej dwa kontenery.">porownaj</a>(vector &lt;int&gt;&amp; Tab1, vector &lt;int&gt;&amp; Tab2) {
+<a name="l00037"></a>00037         <span class="keywordflow">return</span> equal(Tab1.begin(), Tab1.end(), Tab2.begin());
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_funkcje_8cpp.html">Funkcje.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Sun Mar 2 2014 15:08:22 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

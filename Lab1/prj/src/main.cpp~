@@ -1,0 +1,48 @@
+#include "Funkcje.hh"
+#include "PomiarCzasu.hh"
+
+int main() {
+struct timespec time1, time2;
+vector < int > Tab1, Tab2;
+
+cout << endl << "ANALIZA POMIARU CZASU DZIALANIA ALGORYTMU" << endl << endl;
+clock_getres(CLOCK_PROCESS_CPUTIME_ID, &time1);
+cout << "Rozdzielczosc zegara: " << time1.tv_nsec << " ns " << endl << endl;
+
+cout << "Mnozenie 10 liczb w tablicy"<<endl;
+wczytaj(Tab1, "dane/10x1.csv");
+wczytaj(Tab2, "dane/10x2.csv");
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); // start
+pomnoz(Tab1);
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2); // stop
+cout << "Czas dzialania algorytmu: " << diff(time1, time2).tv_nsec << "ns" << endl;
+cout << "Zgodnosc Tablic (1 - TAK | 0 - NIE)" << endl;
+cout << "Rezultat: " << porownaj(Tab1,Tab2) << endl << endl;
+Tab1.clear();
+Tab2.clear();
+
+cout << "Mnozenie 100 liczb w tablicy"<<endl;
+wczytaj(Tab1, "dane/100x1.csv");
+wczytaj(Tab2, "dane/100x2.csv");
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); // start
+pomnoz(Tab1);
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2); // stop
+cout << "Czas dzialania algorytmu: " << diff(time1, time2).tv_nsec << "ns" << endl;
+cout << "Zgodnosc Tablic (1 - TAK | 0 - NIE)" << endl;
+cout << "Rezultat: " << porownaj(Tab1,Tab2) << endl << endl;
+Tab1.clear();
+Tab2.clear();
+
+cout << "Mnozenie 1000 liczb w tablicy"<<endl;
+wczytaj(Tab1, "dane/1000x1.csv");
+wczytaj(Tab2, "dane/1000x2.csv");
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); // start
+pomnoz(Tab1);
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2); // stop
+cout << "Czas dzialania algorytmu: " << diff(time1, time2).tv_nsec << "ns" << endl;
+cout << "Zgodnosc Tablic (1 - TAK | 0 - NIE)" << endl;
+cout << "Rezultat: " << porownaj(Tab1,Tab2) << endl << endl;
+Tab1.clear();
+Tab2.clear();
+return 0;
+}

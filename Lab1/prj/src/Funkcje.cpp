@@ -1,0 +1,39 @@
+#include "Funkcje.hh"
+/*!
+ * \file
+ * \brief Modul odpowiedzialny za operacje na kontenerach tablic .
+ *
+ *  Plik zawiera opisy funkcji odpowiedzialnych za wykonywanie operacji na kontenerach tablic
+ *  sa to funkcje wczytaj, pomnoz, porownaj dzialajace w oparciu o biblioteke <vector>
+ */
+int wczytaj(vector <int>& Tab, string NazwaPliku) {
+	int x;
+	ifstream StrmWe;
+	StrmWe.open(NazwaPliku.c_str());
+	if(!StrmWe.is_open()) {
+		cerr << "!!! Plik nie zostal otwarty" << endl; 
+		return 1;
+	}
+	while(!StrmWe.eof()) {
+		StrmWe>>x;
+		if (StrmWe.fail()) {
+			StrmWe.clear();
+			StrmWe.ignore(numeric_limits<int>::max( ),'\n');
+		} 
+		else { 
+			Tab.push_back( x );
+		}
+	}
+	StrmWe.close();
+return 0; 
+}
+
+void pomnoz(vector <int>& Tab) {
+	for(unsigned int  i = 1; i < Tab.size(); i++ ) 
+		Tab[i]=Tab[i]*2;  
+}
+
+int porownaj(vector <int>& Tab1, vector <int>& Tab2) {
+	return equal(Tab1.begin(), Tab1.end(), Tab2.begin());
+}
+

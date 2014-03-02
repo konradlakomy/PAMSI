@@ -1,0 +1,25 @@
+/*!
+  \mainpage  Pomiar czasu działania algorytmu
+  \author Konrad Łakomy
+  \date 02.03.2014
+  \version 1.0
+
+   Program jest narzędziem słuzacym do pomiaru czasu działania
+działania algorytmu wykonującego operacje mnożenia kontenera tablicy danych x2.\n
+Wykonuję te operację dla różnego rozmiaru zestawu danych wejściowych.
+
+
+  \section etykieta-opis-programu  Opis programu
+
+   Schemat działania programu: \n \n
+	-Odczytanie z pliku CSV zestawu danych \n
+	-Zapisanie ich w kontenerze tablicy \n
+	-Odczytanie z pliku CSV zestawu danych sprawdzajacych \n
+	-Zapisanie ich w drugim kontenerze tablicy \n
+	-Włączenie stopera \n
+	-Wykonanie algorytmu(mnożenie kontenera x2) \n
+	-Wyłączenie stopera \n
+	-Porównanie kontenera po wykonaniu algorytmu z kontenerem zawierąjacym dane sprawdzające \n
+	-Wyświetlenie wyników \n
+
+ */
