@@ -1,0 +1,24 @@
+var NAVTREEINDEX =
+{
+"index.html":[],
+"index.html":[0],
+"annotated.html":[1,0],
+"class_tablica_liczb.html":[1,0,0],
+"classes.html":[1,1],
+"functions.html":[1,2,0],
+"functions_func.html":[1,2,1],
+"functions_vars.html":[1,2,2],
+"functions_rela.html":[1,2,3],
+"files.html":[2,0],
+"_funkcje_8cpp.html":[2,0,0],
+"_funkcje_8hh.html":[2,0,1],
+"main_8cpp.html":[2,0,2],
+"_pomiar_czasu_8cpp.html":[2,0,3],
+"_pomiar_czasu_8hh.html":[2,0,4],
+"globals.html":[2,1,0],
+"globals_func.html":[2,1,1],
+"dirs.html":[3],
+"dir_f06a4fae48330d4c20dbba797680036d.html":[3,0],
+"dir_25484259e586d5a6513933df7acf2bab.html":[3,0,0],
+"dir_78066301db4f71e9ba9ec5f786c3e93c.html":[3,0,1]
+};

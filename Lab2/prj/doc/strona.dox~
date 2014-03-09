@@ -1,0 +1,25 @@
+/*!
+  \mainpage  Pomiar czasu działania algorytmów
+  \author Konrad Łakomy
+  \date 02.03.2014
+  \version 1.0
+
+   Program jest narzędziem słuzacym do pomiaru czasu
+działania algorytmow wykonujących operacje na kontenerze tablicy danych. \n
+Wykonuję te operację dla różnego rozmiaru zestawu danych wejściowych.
+
+
+  \section etykieta-opis-programu  Opis programu
+
+   Testowane algorytmy to: \n \n
+	-POMNOZ() - wykonuje operacje mnozenia tablicy x2 \n
+	-ZAMIEN_ELEMENTY(i,j) - wykonuje operacje zamiany dwoch elementow w kontenerze \n
+	-ODWROC_KOLEJNOSC() - wykonuje operacje odwrocenia kolejnosci danych w kontenerze \n
+	-DODAJ_ELEMENT() - wykonuje operacje dolaczenia nowego elementu na koncu kontenera \n
+	-DODAJ_ELEMENTY(tab1,tab2) - wykonuje operacje polaczenia dwoch kontenerow \n
+	-POROWNAJ(tab1,tab2) - wykonuje operacje sprawdzenia zgodnosci elementow w kontenerach \n
+	-OPERATOR '=' - wykonuje operacje przypisania kontenerowi elementow z drugiego kontenera \n
+	-OPERATOR '==' - wykonuje operacje sprawdzenia zgodnosci elementow w kontenerach\n
+	-OPERATOR '+' - wykonuje operacje polaczenia dwoch kontenerow \n
+
+ */
