@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy Funkcje.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_funkcje_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Funkcje.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_funkcje_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="_funkcje_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kontenerach.">Funkcje.hh</a>&quot;</span>
+<a name="l00010"></a><a class="code" href="class_tablica_liczb.html#a1a12e61ce8e54b2fbd57dceb944db331">00010</a> <span class="keywordtype">bool</span> <a class="code" href="class_tablica_liczb.html#a1a12e61ce8e54b2fbd57dceb944db331" title="Definicja metody wczytującej dane do kontenera.">TablicaLiczb::wczytaj</a>(<span class="keywordtype">string</span> NazwaPliku) {
+<a name="l00011"></a>00011         <span class="keywordtype">int</span> LiczbaElementow;    
+<a name="l00012"></a>00012         <span class="keywordtype">int</span> x;
+<a name="l00013"></a>00013         ifstream StrmWe;
+<a name="l00014"></a>00014         StrmWe.open(NazwaPliku.c_str());
+<a name="l00015"></a>00015         <span class="keywordflow">if</span>(!StrmWe.is_open()) {
+<a name="l00016"></a>00016                 cerr &lt;&lt; <span class="stringliteral">&quot;!!! Plik nie zostal otwarty&quot;</span> &lt;&lt; endl; 
+<a name="l00017"></a>00017                 <span class="keywordflow">return</span> 1;
+<a name="l00018"></a>00018         }
+<a name="l00019"></a>00019         StrmWe &gt;&gt; LiczbaElementow;
+<a name="l00020"></a>00020         <span class="keywordflow">if</span> (StrmWe.fail()) {
+<a name="l00021"></a>00021         StrmWe.clear();
+<a name="l00022"></a>00022         StrmWe.ignore(numeric_limits&lt;int&gt;::max( ),<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00023"></a>00023                 } 
+<a name="l00024"></a>00024         <span class="keywordflow">while</span>(!StrmWe.eof()) {
+<a name="l00025"></a>00025                 StrmWe&gt;&gt;x;
+<a name="l00026"></a>00026                 <span class="keywordflow">if</span> (StrmWe.fail()) {
+<a name="l00027"></a>00027                         StrmWe.clear();
+<a name="l00028"></a>00028                         StrmWe.ignore(numeric_limits&lt;int&gt;::max( ),<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00029"></a>00029                 } 
+<a name="l00030"></a>00030                 <span class="keywordflow">else</span> { 
+<a name="l00031"></a>00031                         <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.push_back( x );
+<a name="l00032"></a>00032                 }
+<a name="l00033"></a>00033         }
+<a name="l00034"></a>00034         StrmWe.close();
+<a name="l00035"></a>00035 <span class="keywordflow">return</span> 0; 
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 <span class="comment">/**********************************************************/</span>
+<a name="l00038"></a><a class="code" href="class_tablica_liczb.html#ab37765705c8c944355de4c9a1a4f8451">00038</a> <span class="keywordtype">bool</span> <a class="code" href="class_tablica_liczb.html#ab37765705c8c944355de4c9a1a4f8451" title="Definicja metody wyswietlajacej dane kontenera.">TablicaLiczb::wyswietl</a>() {
+<a name="l00039"></a>00039 <span class="comment">/*for(unsigned int i = 0; i &lt; Tab.size(); i++ )</span>
+<a name="l00040"></a>00040 <span class="comment">cout &lt;&lt; Tab[i] &lt;&lt; endl;*/</span>
+<a name="l00041"></a>00041 <span class="keywordflow">if</span>(!<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size()) { cout &lt;&lt; <span class="stringliteral">&quot;Tablica jest pusta.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00042"></a>00042      vector &lt;int&gt;::iterator it_tab = <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin();     
+<a name="l00043"></a>00043      <span class="keywordflow">for</span>(; it_tab != <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(); it_tab++)
+<a name="l00044"></a>00044         cout &lt;&lt; *it_tab &lt;&lt; endl;
+<a name="l00045"></a>00045 <span class="keywordflow">return</span> 0;
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="class_tablica_liczb.html#a1f58de3d4ce6fba6da2bda7213870597">00049</a> <span class="keywordtype">bool</span> <a class="code" href="class_tablica_liczb.html#a1f58de3d4ce6fba6da2bda7213870597" title="Definicja metody wykonujacej operacje mnożenia elementow kontenera.">TablicaLiczb::pomnoz</a>() {
+<a name="l00050"></a>00050 <span class="keywordflow">if</span>(!<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size()) { cout &lt;&lt; <span class="stringliteral">&quot;Tablica jest pusta.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00051"></a>00051         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  i = 0; i &lt; <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size(); i++ ) 
+<a name="l00052"></a>00052                 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[i]=<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[i]*2;  
+<a name="l00053"></a>00053 <span class="keywordflow">return</span> 0;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="_funkcje_8cpp.html#aa7093754cdb53d30f43db6769ea08de9">00057</a> <span class="keywordtype">bool</span> <a class="code" href="_funkcje_8cpp.html#aa7093754cdb53d30f43db6769ea08de9">porownaj</a>(<a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab1, <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab2 ) {
+<a name="l00058"></a>00058         <span class="keywordflow">return</span> equal(Tab1.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin(), Tab1.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(), Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin());
+<a name="l00059"></a>00059 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 
+<a name="l00062"></a><a class="code" href="class_tablica_liczb.html#aa1cf52defa3c472cca6e926fa421bce6">00062</a> <span class="keywordtype">bool</span> <a class="code" href="class_tablica_liczb.html#aa1cf52defa3c472cca6e926fa421bce6" title="Definicja metody wykonujacej operacje zamiany dwoch elementow kontenera.">TablicaLiczb::zamien_elementy</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j) {
+<a name="l00063"></a>00063         <span class="keywordtype">int</span> temp;
+<a name="l00064"></a>00064      <span class="keywordflow">if</span>(<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size() &lt; i)
+<a name="l00065"></a>00065         <span class="keywordflow">if</span>(<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size() &lt; j)
+<a name="l00066"></a>00066           { cout&lt;&lt;<span class="stringliteral">&quot;Wskazane pozycje nie istnieja&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00067"></a>00067         <span class="keywordflow">else</span> 
+<a name="l00068"></a>00068           { cout &lt;&lt; <span class="stringliteral">&quot;Pozycja &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; nie istnieje.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00069"></a>00069      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size() &lt; j) 
+<a name="l00070"></a>00070           { cout &lt;&lt; <span class="stringliteral">&quot;Pozycja &quot;</span> &lt;&lt; j &lt;&lt; <span class="stringliteral">&quot; nie istnieje.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }   
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 temp=<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[i];
+<a name="l00073"></a>00073 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[i]=<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[j];
+<a name="l00074"></a>00074 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>[j]=temp;
+<a name="l00075"></a>00075 <span class="keywordflow">return</span> 0;
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a><a class="code" href="class_tablica_liczb.html#aa3fb196c4a24827459917eac5fb5c56b">00079</a> <span class="keywordtype">bool</span> <a class="code" href="class_tablica_liczb.html#aa3fb196c4a24827459917eac5fb5c56b" title="Definicja metody wykonujacej operacje odwrocenia kolejnosci elementow wektora.">TablicaLiczb::odwroc_kolejnosc</a>() {
+<a name="l00080"></a>00080      vector &lt;int&gt; tmp;
+<a name="l00081"></a>00081      vector &lt;int&gt;::iterator it_tab = <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin();
+<a name="l00082"></a>00082      <span class="keywordflow">if</span>(!<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size()) { cout &lt;&lt; <span class="stringliteral">&quot;Tablica jest pusta.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00083"></a>00083      <span class="keywordflow">if</span>(<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size() == 1) { cout &lt;&lt; <span class="stringliteral">&quot;Tablica zawiera jedynie jeden element. Dodaj kolejny aby moc ja obrocic.&quot;</span> &lt;&lt; endl; <span class="keywordflow">return</span> 1; }
+<a name="l00084"></a>00084      <span class="keywordflow">for</span>(; it_tab != <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(); it_tab++)
+<a name="l00085"></a>00085          tmp.insert(tmp.begin(), *it_tab);
+<a name="l00086"></a>00086      
+<a name="l00087"></a>00087      <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a> = tmp;
+<a name="l00088"></a>00088      
+<a name="l00089"></a>00089      <span class="keywordflow">return</span> 0;
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00093"></a><a class="code" href="class_tablica_liczb.html#a70cc7c60e834c082e53ba680b00a6097">00093</a> <span class="keywordtype">int</span> <a class="code" href="class_tablica_liczb.html#a70cc7c60e834c082e53ba680b00a6097" title="Definicja metody dodajacej kolejne dane do kontenera.">TablicaLiczb::dodaj_element</a>(<span class="keywordtype">int</span> element) {
+<a name="l00094"></a>00094 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.push_back(element);
+<a name="l00095"></a>00095 <span class="keywordflow">return</span> <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.size();      
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="_funkcje_8cpp.html#acf9161f9ac8d718c561ed3fda968732e">00099</a> <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> <a class="code" href="_funkcje_8cpp.html#acf9161f9ac8d718c561ed3fda968732e">dodaj_elementy</a>(<a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab1, <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab2) {
+<a name="l00100"></a>00100         vector &lt;int&gt;::iterator it_tab = Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin();
+<a name="l00101"></a>00101      <span class="keywordflow">for</span>(; it_tab != Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(); it_tab++)         
+<a name="l00102"></a>00102         Tab1.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.push_back(*it_tab);
+<a name="l00103"></a>00103         
+<a name="l00104"></a>00104 <span class="keywordflow">return</span> Tab1;
+<a name="l00105"></a>00105      }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00109"></a><a class="code" href="class_tablica_liczb.html#ab882a6548718980fe5ea1aa77caf472c">00109</a> <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> <a class="code" href="class_tablica_liczb.html#ab882a6548718980fe5ea1aa77caf472c" title="Definicja przeciazenia operatora &#39;+&#39; wykonujacego operacje polaczenia dwoch kontenerow.">TablicaLiczb::operator + </a>(<a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab2) {
+<a name="l00110"></a>00110         vector &lt;int&gt;::iterator it_tab = Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin();
+<a name="l00111"></a>00111      <span class="keywordflow">for</span>(; it_tab != Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(); it_tab++)
+<a name="l00112"></a>00112          <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.push_back(*it_tab);
+<a name="l00113"></a>00113 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00114"></a>00114 }
+<a name="l00115"></a>00115 
+<a name="l00116"></a><a class="code" href="class_tablica_liczb.html#a8df2a4c63c71e7aad1f6117f00890f7e">00116</a> <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> <a class="code" href="class_tablica_liczb.html#a8df2a4c63c71e7aad1f6117f00890f7e" title="Definicja przeciazenia operatora &#39;=&#39; wykonujacego przypisanie kontenerowi elementow z kontenera Tab2...">TablicaLiczb::operator = </a>(<a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab2) {
+<a name="l00117"></a>00117 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a> = Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>;
+<a name="l00118"></a>00118 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00119"></a>00119 }
+<a name="l00120"></a>00120 
+<a name="l00121"></a><a class="code" href="_funkcje_8cpp.html#a32a412d98739c368cfa55e328ccfc6bc">00121</a> <span class="keywordtype">bool</span> <a class="code" href="_funkcje_8cpp.html#a32a412d98739c368cfa55e328ccfc6bc">operator == </a>(<a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab1, <a class="code" href="class_tablica_liczb.html" title="Modeluje pojecie tablicy liczb i metod z nia zwiazanych.">TablicaLiczb</a> Tab2) {
+<a name="l00122"></a>00122 <span class="keywordflow">return</span> equal(Tab1.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin(), Tab1.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.end(), Tab2.<a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.begin());
+<a name="l00123"></a>00123 }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 <span class="comment">/**********************************************************************/</span>
+<a name="l00127"></a>00127 
+<a name="l00128"></a><a class="code" href="class_tablica_liczb.html#ade9f62881a0083ff7e2f3f2378f305a3">00128</a> <span class="keywordtype">void</span> <a class="code" href="class_tablica_liczb.html#ade9f62881a0083ff7e2f3f2378f305a3" title="Definicja metody kasujacej dane kontenera.">TablicaLiczb::wyczysc</a>() {
+<a name="l00129"></a>00129 <a class="code" href="class_tablica_liczb.html#a83dd4ccb932b33bfd6c4d14e5acbccc6">Tab</a>.clear();
+<a name="l00130"></a>00130 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_funkcje_8cpp.html">Funkcje.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Sun Mar 9 2014 13:44:10 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy Queue.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_queue_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Queue.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_queue_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QUEUE_HH</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QUEUE_HH</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00021"></a><a class="code" href="class_queue___version1.html">00021</a> <span class="keyword">class </span><a class="code" href="class_queue___version1.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version1</a>
+<a name="l00022"></a>00022 {
+<a name="l00023"></a><a class="code" href="class_queue___version1.html#a4b2a83e390d264f3ee364833399db9e0">00023</a>         <span class="keywordtype">int</span> *<a class="code" href="class_queue___version1.html#a4b2a83e390d264f3ee364833399db9e0">Tab</a>;
+<a name="l00024"></a><a class="code" href="class_queue___version1.html#a5bdafaa4877f96875d253c9807390ef8">00024</a>         <span class="keywordtype">int</span> <a class="code" href="class_queue___version1.html#a2dee52af00452e7037e9baa378f13568">front</a>, <a class="code" href="class_queue___version1.html#a5bdafaa4877f96875d253c9807390ef8">rear</a>; 
+<a name="l00025"></a>00025 <span class="keyword">public</span>:
+<a name="l00026"></a>00026 
+<a name="l00032"></a>00032         <a class="code" href="class_queue___version1.html#affed0185918d2b804c2f5ce59d4d16b5" title="Konstruktor obiektu klasy Queue_Version1.">Queue_Version1</a>();
+<a name="l00033"></a>00033 
+<a name="l00039"></a>00039         <a class="code" href="class_queue___version1.html#ab0e05973bcaec4433c42f4493569e5c4" title="Destruktor obiektu klasy Queue_Version1.">~Queue_Version1</a>();
+<a name="l00040"></a>00040         <span class="keywordtype">bool</span> <a class="code" href="class_queue___version1.html#afe73dbb3b72c4442311e87ef6b9ae8e4">IsEmpty</a>();
+<a name="l00041"></a>00041         <span class="keywordtype">bool</span> <a class="code" href="class_queue___version1.html#abf512d9cd085402e1902772eb85ad26f">IsFull</a>();
+<a name="l00042"></a>00042         <span class="keywordtype">void</span> <a class="code" href="class_queue___version1.html#a1ef029a479695fbdd7e8b9756004ccdf">Enqueue</a>(<span class="keywordtype">int</span> x);
+<a name="l00043"></a>00043         <span class="keywordtype">void</span> <a class="code" href="class_queue___version1.html#a6c3ba13ba9b0cbcd4cbbc5e916c5fbf5">Dequeue</a>();
+<a name="l00044"></a>00044         <span class="keywordtype">int</span> <a class="code" href="class_queue___version1.html#a743928e007f42b020349b8c99504614a">Front</a>();
+<a name="l00045"></a>00045         <span class="keywordtype">void</span> <a class="code" href="class_queue___version1.html#a43b04a4d4832590b094a8ae978ebf1a4">Print</a>();
+<a name="l00046"></a>00046         <span class="keywordtype">int</span> <a class="code" href="class_queue___version1.html#ab52fd92b32ef98c38da0e31ba9c1d850">Load</a>(<span class="keywordtype">string</span> FileName);
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00055"></a><a class="code" href="class_queue___version2.html">00055</a> <span class="keyword">class </span><a class="code" href="class_queue___version2.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version2</a>
+<a name="l00056"></a>00056 {
+<a name="l00057"></a>00057 
+<a name="l00064"></a><a class="code" href="struct_queue___version2_1_1_node.html">00064</a>         <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_queue___version2_1_1_node.html" title="Modeluje pojecie węzła kolejki.">Node</a> {
+<a name="l00065"></a><a class="code" href="struct_queue___version2_1_1_node.html#a528e94ed375eabbab8d4e6705b6e8f97">00065</a>                 <a class="code" href="struct_queue___version2_1_1_node.html" title="Modeluje pojecie węzła kolejki.">Node</a> *<a class="code" href="struct_queue___version2_1_1_node.html#a528e94ed375eabbab8d4e6705b6e8f97">next</a>;
+<a name="l00066"></a><a class="code" href="struct_queue___version2_1_1_node.html#a00bc0a6e05d10c600033a75d5d10cfa0">00066</a>                 <span class="keywordtype">int</span> <a class="code" href="struct_queue___version2_1_1_node.html#a00bc0a6e05d10c600033a75d5d10cfa0">data</a>;
+<a name="l00067"></a>00067         } <a class="code" href="class_queue___version2.html#aeaf18423e3ca2ab8fe624d84d66094c5" title="Modeluje pojecie węzła kolejki.">NODE</a>;
+<a name="l00068"></a><a class="code" href="class_queue___version2.html#a5a5dd4d212f80189a42c473ca151280a">00068</a>         <a class="code" href="struct_queue___version2_1_1_node.html" title="Modeluje pojecie węzła kolejki.">NODE</a>* <a class="code" href="class_queue___version2.html#a5a5dd4d212f80189a42c473ca151280a">head</a>;
+<a name="l00069"></a>00069 <span class="keyword">public</span>:
+<a name="l00070"></a>00070 
+<a name="l00076"></a>00076         <a class="code" href="class_queue___version2.html#a60296dde3920f753558924e69f538046" title="Konstruktor obiektu klasy Queue_Version2.">Queue_Version2</a>();
+<a name="l00077"></a>00077 
+<a name="l00083"></a>00083         <a class="code" href="class_queue___version2.html#a7c96da578a13f794f1ce3690460b51b3" title="Destruktor obiektu klasy Queue_Version2.">~Queue_Version2</a>();
+<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="class_queue___version2.html#a55fb3e3783bfb5cb226a246998922d98">Enqueue</a>(<span class="keywordtype">int</span> Element);
+<a name="l00085"></a>00085         <span class="keywordtype">bool</span> <a class="code" href="class_queue___version2.html#a9844d2cc8d288f2393452a2bce61291a">IsEmpty</a>();
+<a name="l00086"></a>00086         <span class="keywordtype">int</span> <a class="code" href="class_queue___version2.html#a817cf4e685993c7c7931f05fd140d725">Dequeue</a>();
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_queue___version2.html#a58294f1b70fc051ffa4d0e14745d8aa1">Print</a>();
+<a name="l00088"></a>00088         <span class="keywordtype">int</span> <a class="code" href="class_queue___version2.html#a529320b95ee5ade04db0670ed1a54518">Front</a>();
+<a name="l00089"></a>00089         <span class="keywordtype">int</span> <a class="code" href="class_queue___version2.html#a627368703b3aa0a1885757a06f450807">Load</a>(<span class="keywordtype">string</span> FileName);
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 };
+<a name="l00092"></a>00092 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_queue_8hh.html">Queue.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Mon Mar 17 2014 01:22:03 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

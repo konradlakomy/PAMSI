@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy PomiarCzasu.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_pomiar_czasu_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">PomiarCzasu.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_pomiar_czasu_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="_pomiar_czasu_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu algorytmu.">PomiarCzasu.hh</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="_stackk_8hh.html">Stackk.hh</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="_queue_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kolejce.">Queue.hh</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00014"></a><a class="code" href="_pomiar_czasu_8cpp.html#a5959b2e100c03e81bd1c5049adf30165">00014</a> timespec <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(timespec start, timespec end) {
+<a name="l00015"></a>00015     timespec temp;
+<a name="l00016"></a>00016     <span class="keywordflow">if</span>((end.tv_nsec - start.tv_nsec) &lt; 0) {
+<a name="l00017"></a>00017         temp.tv_sec = end.tv_sec - start.tv_sec - 1;
+<a name="l00018"></a>00018         temp.tv_nsec = 1000000000 + end.tv_nsec - start.tv_nsec;
+<a name="l00019"></a>00019     } <span class="keywordflow">else</span> {
+<a name="l00020"></a>00020         temp.tv_sec = end.tv_sec - start.tv_sec;
+<a name="l00021"></a>00021         temp.tv_nsec = end.tv_nsec - start.tv_nsec;    
+<a name="l00022"></a>00022     }   
+<a name="l00023"></a>00023     <span class="keywordflow">return</span> temp;
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="_pomiar_czasu_8cpp.html#afcc7015147e8c95d3bb7af0614ee99cf">00028</a> <span class="keywordtype">void</span> <a class="code" href="_pomiar_czasu_8hh.html#afcc7015147e8c95d3bb7af0614ee99cf" title="Definicja funkcji dokonujacej pomiaru czasu dzialania kazdego z algorytmow.">PomiarCzasu</a>(<span class="keywordtype">string</span> FileName) {
+<a name="l00029"></a>00029 <a class="code" href="class_stack___version1.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version1</a> S1;
+<a name="l00030"></a>00030 <a class="code" href="class_stack___version2.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version2</a> S2;
+<a name="l00031"></a>00031 <a class="code" href="class_stack___version3.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version3</a> S3;
+<a name="l00032"></a>00032 <a class="code" href="class_queue___version1.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version1</a> Q1;
+<a name="l00033"></a>00033 <a class="code" href="class_queue___version2.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version2</a> Q2; 
+<a name="l00034"></a>00034 <span class="keyword">struct </span>timespec time1, time2;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 cout &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;FUNCTION&quot;</span> &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;WORKTIME&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00041"></a>00041 S1.<a class="code" href="class_stack___version1.html#abbca07c8c6a4118a5e8e42eef9532aa3">Load</a>(FileName.c_str());
+<a name="l00042"></a>00042 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00043"></a>00043 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00044"></a>00044 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF STACK VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00047"></a>00047 S2.<a class="code" href="class_stack___version2.html#a3c21299dd8bf0b3f36bf9a04cafd1650">Load</a>(FileName.c_str());
+<a name="l00048"></a>00048 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00049"></a>00049 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00050"></a>00050 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF STACK VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00053"></a>00053 S3.<a class="code" href="class_stack___version3.html#a6d9aef51c892a45e16dff25aa29fbeda">Load</a>(FileName.c_str());
+<a name="l00054"></a>00054 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00055"></a>00055 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00056"></a>00056 cout &lt;&lt; <span class="stringliteral">&quot;LIST IMPLEMENTATION OF STACK&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00059"></a>00059 Q1.<a class="code" href="class_queue___version1.html#ab52fd92b32ef98c38da0e31ba9c1d850">Load</a>(FileName.c_str());
+<a name="l00060"></a>00060 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00061"></a>00061 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00062"></a>00062 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF QUEUE&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00065"></a>00065 Q2.<a class="code" href="class_queue___version2.html#a627368703b3aa0a1885757a06f450807">Load</a>(FileName.c_str());
+<a name="l00066"></a>00066 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00067"></a>00067 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00068"></a>00068 cout &lt;&lt; <span class="stringliteral">&quot;LIST IMPLEMENTATION OF QUEUE&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; (<a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec)/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 }
+<a name="l00073"></a>00073 
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_pomiar_czasu_8cpp.html">PomiarCzasu.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Mon Mar 17 2014 01:22:03 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

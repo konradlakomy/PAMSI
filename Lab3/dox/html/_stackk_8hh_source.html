@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy Stackk.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_stackk_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Stackk.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_stackk_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef STACKK_HH</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define STACKK_HH</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00012"></a><a class="code" href="class_stack___version1.html">00012</a> <span class="keyword">class </span><a class="code" href="class_stack___version1.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version1</a> 
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="class_stack___version1.html#aed14e790ff2fb5b12ec68f0ac9af4887">00015</a>         <span class="keywordtype">int</span> *<a class="code" href="class_stack___version1.html#aed14e790ff2fb5b12ec68f0ac9af4887">Tab</a>;
+<a name="l00016"></a><a class="code" href="class_stack___version1.html#a73dd2b540bc32c0fc39e3dbbf745fa35">00016</a>         <span class="keywordtype">int</span> <a class="code" href="class_stack___version1.html#a73dd2b540bc32c0fc39e3dbbf745fa35">Top</a>, <a class="code" href="class_stack___version1.html#ada802a7e21beb5a6d44429779aa16d5a">Size</a>;
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00018"></a>00018 
+<a name="l00024"></a>00024         <a class="code" href="class_stack___version1.html#aaed42480903a3f39cf81ac60a9c59b03" title="Konstruktor obiektu klasy Stack_Version1.">Stack_Version1</a>();
+<a name="l00025"></a>00025 
+<a name="l00031"></a>00031         <a class="code" href="class_stack___version1.html#a16a67f5cbc5787d7b6364052f0b53e1c" title="Destruktor obiektu klasy Stack_Version1.">~Stack_Version1</a>();
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> <a class="code" href="class_stack___version1.html#a7090db4efac987651ea5423cba7f053d">Stack</a>(<span class="keywordtype">int</span> <a class="code" href="class_stack___version1.html#ada802a7e21beb5a6d44429779aa16d5a">Size</a>);
+<a name="l00033"></a>00033         <span class="keywordtype">bool</span> <a class="code" href="class_stack___version1.html#a968e031907446c779eadfff9a9e576bc">IsFull</a>();
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> <a class="code" href="class_stack___version1.html#a526adcfee76ded0a709f0d604aa4ad20">Push</a>(<span class="keywordtype">int</span> Element);
+<a name="l00035"></a>00035         <span class="keywordtype">int</span> <a class="code" href="class_stack___version1.html#acd9759a4451b68502815458c7a61f2c2">Peek</a>();
+<a name="l00036"></a>00036         <span class="keywordtype">int</span> <a class="code" href="class_stack___version1.html#abbca07c8c6a4118a5e8e42eef9532aa3">Load</a>(<span class="keywordtype">string</span> FileName);
+<a name="l00037"></a>00037         <span class="keywordtype">void</span> <a class="code" href="class_stack___version1.html#a436da4a8dc4e1f9e8d4b4b23c72f3015">Print</a>();
+<a name="l00038"></a>00038         <span class="keywordtype">void</span> <a class="code" href="class_stack___version1.html#a1d9178d925d289c9e15ac073a5ececa3">Pop</a>();
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 
+<a name="l00048"></a><a class="code" href="class_stack___version2.html">00048</a> <span class="keyword">class </span><a class="code" href="class_stack___version2.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version2</a> 
+<a name="l00049"></a>00049 {
+<a name="l00050"></a><a class="code" href="class_stack___version2.html#a4f7e5496d7ce6db69b3ab3c16fc32573">00050</a>         <span class="keywordtype">int</span> *<a class="code" href="class_stack___version2.html#a4f7e5496d7ce6db69b3ab3c16fc32573">Tab</a>;
+<a name="l00051"></a><a class="code" href="class_stack___version2.html#a72ebfe67695b8757789f1523e29d9708">00051</a>         <span class="keywordtype">int</span> <a class="code" href="class_stack___version2.html#a72ebfe67695b8757789f1523e29d9708">Top</a>, <a class="code" href="class_stack___version2.html#ac3854ab04bac8d9697984bf5acf55e74">Size</a>;
+<a name="l00052"></a>00052 <span class="keyword">public</span>:
+<a name="l00053"></a>00053 
+<a name="l00059"></a>00059         <a class="code" href="class_stack___version2.html#a5366488c3b480bc15593826c1c6ba7af" title="Konstruktor obiektu klasy Stack_Version2.">Stack_Version2</a>();
+<a name="l00060"></a>00060 
+<a name="l00066"></a>00066         <a class="code" href="class_stack___version2.html#ad13af12e607393ca7821d32935eb0faa" title="Destruktor obiektu klasy Stack_Version2.">~Stack_Version2</a>();
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_stack___version2.html#a750b7777ea3ebf3faadc10df946be661">Stack</a>(<span class="keywordtype">int</span> <a class="code" href="class_stack___version2.html#ac3854ab04bac8d9697984bf5acf55e74">Size</a>);
+<a name="l00068"></a>00068         <span class="keywordtype">bool</span> <a class="code" href="class_stack___version2.html#a4183b940c155952e483f33fc05dd5321">IsFull</a>();
+<a name="l00069"></a>00069         <span class="keywordtype">int</span> <a class="code" href="class_stack___version2.html#a5096991ddedb2961f5060cef67fe2df0">Peek</a>();
+<a name="l00070"></a>00070         <span class="keywordtype">void</span> <a class="code" href="class_stack___version2.html#a06d17eb2f2064572f3003ef993744282">Push</a>(<span class="keywordtype">int</span> Element);
+<a name="l00071"></a>00071         <span class="keywordtype">int</span> <a class="code" href="class_stack___version2.html#a3c21299dd8bf0b3f36bf9a04cafd1650">Load</a>(<span class="keywordtype">string</span> FileName);
+<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="class_stack___version2.html#a9910ab1de6a466e66d9478b23f1346cf">Print</a>();
+<a name="l00073"></a>00073         <span class="keywordtype">void</span> <a class="code" href="class_stack___version2.html#a7fbc1a03c5fd1e59a0a8c69fcd41607e">Pop</a>();
+<a name="l00074"></a>00074 };
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 
+<a name="l00083"></a><a class="code" href="class_stack___version3.html">00083</a> <span class="keyword">class </span><a class="code" href="class_stack___version3.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version3</a> 
+<a name="l00084"></a>00084 {
+<a name="l00091"></a><a class="code" href="struct_stack___version3_1_1node.html">00091</a>         <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_stack___version3_1_1node.html" title="Modeluje pojecie węzła stosu.">node</a> {
+<a name="l00092"></a><a class="code" href="struct_stack___version3_1_1node.html#a80c83e0190899f993bfd1981743d0441">00092</a>                 <a class="code" href="struct_stack___version3_1_1node.html" title="Modeluje pojecie węzła stosu.">node</a> *<a class="code" href="struct_stack___version3_1_1node.html#a80c83e0190899f993bfd1981743d0441">next</a>;
+<a name="l00093"></a><a class="code" href="struct_stack___version3_1_1node.html#ab8c4ab0bb4404f2ac8f4ae49c9515d74">00093</a>                 <span class="keywordtype">int</span> <a class="code" href="struct_stack___version3_1_1node.html#ab8c4ab0bb4404f2ac8f4ae49c9515d74">data</a>;
+<a name="l00094"></a>00094         } <a class="code" href="class_stack___version3.html#a0ea733ef8addb05c5f050a1cf647d741" title="Modeluje pojecie węzła stosu.">NODE</a>;
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="class_stack___version3.html#adeac51cffbe0986ade582c3f57592a11">00096</a>         <a class="code" href="struct_stack___version3_1_1node.html" title="Modeluje pojecie węzła stosu.">NODE</a> *<a class="code" href="class_stack___version3.html#adeac51cffbe0986ade582c3f57592a11">top</a>;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">public</span>:
+<a name="l00099"></a>00099 
+<a name="l00105"></a>00105         <a class="code" href="class_stack___version3.html#aa35ef6f2dd454e91bf5b371b789664d3" title="Konstruktor obiektu klasy Stack_Version3.">Stack_Version3</a>();
+<a name="l00106"></a>00106 
+<a name="l00112"></a>00112         <a class="code" href="class_stack___version3.html#a63ea884a1585e466cb6c93e2b89a2df9" title="Destruktor obiektu klasy Stack_Version3.">~Stack_Version3</a>();
+<a name="l00113"></a>00113         <span class="keywordtype">void</span> <a class="code" href="class_stack___version3.html#ad3de03bb156427410bd19cf907ce3e5b">Push</a>(<span class="keywordtype">int</span> Element);
+<a name="l00114"></a>00114         <span class="keywordtype">int</span> <a class="code" href="class_stack___version3.html#acdda7777452efc5e09f66a255ba1459a">Pop</a>();
+<a name="l00115"></a>00115         <span class="keywordtype">bool</span> <a class="code" href="class_stack___version3.html#a6d14e60887dfb7c5284a32663a91bdb1">IsEmpty</a>();
+<a name="l00116"></a>00116         <span class="keywordtype">int</span> <a class="code" href="class_stack___version3.html#a2bcf6c82b4f758c4822349e88ba54415">Peek</a>();
+<a name="l00117"></a>00117         <span class="keywordtype">int</span> <a class="code" href="class_stack___version3.html#a6d9aef51c892a45e16dff25aa29fbeda">Load</a>(<span class="keywordtype">string</span> FileName);
+<a name="l00118"></a>00118         <span class="keywordtype">void</span> <a class="code" href="class_stack___version3.html#a5c8c533bc388c2c43caff0a5ef8619dd">Print</a>();   
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 };
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_stackk_8hh.html">Stackk.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Mon Mar 17 2014 01:22:03 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

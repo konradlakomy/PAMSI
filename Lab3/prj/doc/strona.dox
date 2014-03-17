@@ -1,0 +1,21 @@
+/*!
+  \mainpage  Pomiar czasu działania algorytmów
+  \author Konrad Łakomy
+  \date 16.03.2014
+  \version 1.0
+
+   Program jest narzędziem słuzacym do pomiaru czasu
+działania algorytmow zapisujących elementy z pliku do różnych struktur danych. \n
+Wykonuję te operację dla różnego rozmiaru zestawu danych wejściowych.
+
+
+  \section etykieta-opis-programu  Opis programu
+
+   Testowane struktury danych to: \n \n
+	-Implementacja stosu w tablicy ver1 \n
+	-Implementacja stosu w tablicy ver2 \n
+	-Implementacja stosu w liście \n
+	-Implementacja kolejki w tablicy \n
+	-Implementacja kolejki w liście \n
+
+ */
