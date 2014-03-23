@@ -1,0 +1,389 @@
+#include "Queue.hh"
+
+/*!
+ * \file
+ * \brief Modul odpowiedzialny za operacje na kolejce.
+ *
+ *  Plik zawiera opisy metod odpowiedzialnych za wykonywanie operacji na strukturze 
+ *  danych kolejki w wersji tablicowej i listowej.
+ */
+
+Queue_Version1::Queue_Version1()
+{
+	front = -1; 
+	rear = -1;
+	Tab = new int[MAX_SIZE];
+}
+
+Queue_Version1::~Queue_Version1()
+{
+	delete [] Tab;
+}
+
+bool Queue_Version1::IsEmpty()
+{
+	return (front == -1 && rear == -1); 
+}
+
+bool Queue_Version1::IsFull()
+{
+	return (rear+1)%MAX_SIZE == front ? true : false;
+}
+
+void Queue_Version1::Enqueue(int x)
+{
+	if(IsFull())
+	{
+		cout<<"Error: Queue_Version1 is Full\n";
+		return;
+	}
+	if (IsEmpty())
+	{ 
+		front = rear = 0; 
+	}
+	else
+	{
+		rear = (rear+1)%MAX_SIZE;
+	}
+	Tab[rear] = x;
+}
+
+int Queue_Version1::Dequeue()
+{
+	int value;
+	value=Tab[front];
+	if(IsEmpty())
+	{
+		cout<<"Error: Queue_Version1 is Empty\n";
+		return 0;
+	}
+	else if(front == rear ) 
+	{
+		rear = front = -1;
+	}
+	else
+	{
+		front = (front+1)%MAX_SIZE;
+	}
+	return value;
+}
+
+int Queue_Version1::Front()
+{
+	if(front == -1)
+	{
+		cout<<"Error: cannot return front from empty Queue_Version1\n";
+		return -1; 
+	}
+	return Tab[front];
+}
+
+void Queue_Version1::Print()
+{ 
+	int count = (rear+MAX_SIZE-front)%MAX_SIZE + 1;
+	for(int i = 0; i <count; i++)
+	{
+		int index = (front+i) % MAX_SIZE; 
+		cout << Tab[index] << " ";
+	}
+	cout << endl;
+}
+
+int Queue_Version1::Load(string FileName) 
+{
+	int ElementCount;	
+	int x;
+	ifstream StrmWe;
+	StrmWe.open(FileName.c_str());
+	if(!StrmWe.is_open()) 
+	{
+		cerr << "!!! File cannot be opened" << endl; 
+		return 1;
+	}
+	StrmWe >> ElementCount;
+	if (StrmWe.fail()) 
+	{
+	StrmWe.clear();
+	StrmWe.ignore(numeric_limits<int>::max( ),'\n');
+	} 
+	while(!StrmWe.eof()) 
+	{
+		StrmWe>>x;
+		if (StrmWe.fail()) 
+		{
+			StrmWe.clear();
+			StrmWe.ignore(numeric_limits<int>::max( ),'\n');
+		} 
+		else 
+		{ 
+			Enqueue( x );
+		}
+	}
+	StrmWe.close();
+	return 0; 
+}
+
+
+int Queue_Version1::Size() 
+{
+	int count = (rear+MAX_SIZE-front)%MAX_SIZE + 1;
+	return count;
+}
+
+
+void Queue_Version1::QuickSort(int Start, int End) 
+{
+	int i, j, Pivot, Tmp;
+	i=(Start+End)/2;
+	Pivot=Tab[i];	
+	Tab[i]=Tab[End];
+	for ( i = j = Start; i < End; i++)	
+		if (Tab[i] < Pivot)
+		{
+			Tmp=Tab[i];
+			Tab[i]=Tab[j];
+			Tab[j]=Tmp;
+			j++;
+		}
+		Tab[End] = Tab[j];
+		Tab[j] = Pivot;
+		if(Start < j-1)
+			QuickSort(Start, j-1);
+		if(j+1 < End)
+			QuickSort(j+1, End);
+}
+
+
+void Queue_Version1::Merge(int Start, int End)
+{
+	int i, j, tmp;
+	int *t = new int[End+1];
+	int s=(Start+End)/2;
+	for (i=Start; i<=End; i++) 
+		t[i]=Tab[i];  
+	i=Start; j=s+1; tmp=Start;                
+	while (i<=s && j<=End) 
+	{         
+		if (t[i]<t[j])
+			Tab[tmp++]=t[i++];
+		else
+			Tab[tmp++]=t[j++];
+	}
+	while (i<=s) 
+		Tab[tmp++]=t[i++]; 
+}
+
+void Queue_Version1::MergeSort(int Start, int End)
+{
+	if (Start<End) 
+	{
+		int s=(Start+End)/2;
+		MergeSort(Start, s);    
+		MergeSort(s+1, End);   
+		Merge(Start, End);   
+	}
+}
+
+/*****************************************************/
+
+Queue_Version2::Queue_Version2()
+{
+	head = NULL;
+}
+
+Queue_Version2::~Queue_Version2()
+{
+	if(head == NULL) return;
+	NODE *cur = head;
+	while(cur) 
+	{
+		Node *ptr = cur;
+		cur = cur->next;
+		delete ptr;
+	}
+}
+
+void Queue_Version2::Enqueue(int Element)
+{
+	if(head == NULL) 
+	{
+		head = new NODE;
+		head->data = Element;
+		head->next = NULL;
+		return;
+	}
+	NODE *cur = head;
+	while(cur) 
+	{
+		if(cur->next == NULL) 
+		{
+			NODE *ptr = new NODE;
+			ptr->data = Element;
+			ptr->next = NULL;
+			cur->next = ptr;
+			return;
+		}
+		cur = cur->next;
+	}
+}
+
+void Queue_Version2::Print()
+{
+	if(head==NULL) return;
+	Node *cur = head;
+	while(cur) 
+	{
+		cout << cur->data << " ";
+		cur = cur->next;
+	}
+	cout << endl;
+}
+
+int Queue_Version2::Dequeue()
+{
+	if(head == NULL) 
+	{
+		cout << "empty eStack!" << endl;
+		return 0;
+	}
+	NODE *tmp = head;
+	int value = head->data;
+	if(head->next) 
+	{
+		head = head->next;
+	}
+	else 
+	{
+		delete tmp;
+		head = NULL;
+	}
+	return value;
+}
+
+bool Queue_Version2::IsEmpty()
+{
+	return head == NULL ? true : false;
+}
+
+
+int Queue_Version2::Front()
+{
+	return head->data;
+}
+
+
+int Queue_Version2::Load(string FileName) 
+{
+	int ElementCount;	
+	int x;
+	ifstream StrmWe;
+	StrmWe.open(FileName.c_str());
+	if(!StrmWe.is_open()) 
+	{
+		cerr << "!!! File cannot be opened" << endl; 
+		return 1;
+	}
+	StrmWe >> ElementCount;
+	if (StrmWe.fail()) 
+	{
+	StrmWe.clear();
+	StrmWe.ignore(numeric_limits<int>::max( ),'\n');
+	} 
+	while(!StrmWe.eof()) 
+	{
+		StrmWe>>x;
+		if (StrmWe.fail()) 
+		{
+			StrmWe.clear();
+			StrmWe.ignore(numeric_limits<int>::max( ),'\n');
+		} 
+		else 
+		{ 
+			Enqueue( x );
+		}
+	}
+	StrmWe.close();
+	return 0; 
+}
+
+int Queue_Version2::Size() {
+	Node *cur = head;
+	int i=0;
+	while(cur) 
+	{
+		i++;
+		cur = cur->next;
+	}
+	return i;
+}
+
+void Queue_Version2::MergeSort()
+{
+	Queue_Version2 Left, Right;
+	int n, i, mid;
+	n=Size();
+	if (n < 2) return;
+	mid = n/2;
+	for(i=0; i<mid; i++) 
+		Left.Enqueue(Dequeue());
+	for(i=mid; i<n; i++)   
+        	Right.Enqueue(Dequeue());
+
+	Left.MergeSort();
+	Right.MergeSort();
+
+	Merge(Left, Right);    
+} 
+
+
+void Queue_Version2::Merge(Queue_Version2 &One, Queue_Version2 &Two) 
+{
+	while(!One.IsEmpty() && !Two.IsEmpty()) 
+	{
+        	if (One.Front() < Two.Front()) 
+		{
+            		Enqueue(One.Dequeue());
+        	} 
+		else 
+		{
+            		Enqueue(Two.Dequeue());
+        	}
+	}  
+    	while (!One.IsEmpty()) 
+	{
+        	Enqueue(One.Dequeue());	
+    	}
+    	while (!Two.IsEmpty()) 
+	{
+        	Enqueue(Two.Dequeue());
+    	}  
+}
+
+void Queue_Version2::QuickSort() 
+{
+    	if (Size() <= 1) return;
+    	int elem;
+    	Queue_Version2 pivot, less, more;
+    	pivot.Enqueue(Dequeue());
+    	
+	while (!IsEmpty()) 
+	{
+        	elem = Dequeue();
+        	if (elem < pivot.Front()) 
+			less.Enqueue(elem);
+        	else if (elem > pivot.Front()) 
+			more.Enqueue(elem);
+        	else                          
+			pivot.Enqueue(elem);
+    	}
+
+    	less.QuickSort();
+    	more.QuickSort();
+
+    	while (!less.IsEmpty())  
+		Enqueue(less.Dequeue());
+    	while (!pivot.IsEmpty()) 
+		Enqueue(pivot.Dequeue());
+   	while (!more.IsEmpty())  
+		Enqueue(more.Dequeue());
+}

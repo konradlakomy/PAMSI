@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy PomiarCzasu.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_pomiar_czasu_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">PomiarCzasu.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_pomiar_czasu_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="_pomiar_czasu_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu algorytmu.">PomiarCzasu.hh</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="_stackk_8hh.html">Stackk.hh</a>&quot;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="_queue_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kolejce.">Queue.hh</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00014"></a><a class="code" href="_pomiar_czasu_8cpp.html#a5959b2e100c03e81bd1c5049adf30165">00014</a> timespec <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(timespec start, timespec end) {
+<a name="l00015"></a>00015     timespec temp;
+<a name="l00016"></a>00016     <span class="keywordflow">if</span>((end.tv_nsec - start.tv_nsec) &lt; 0) {
+<a name="l00017"></a>00017         temp.tv_sec = end.tv_sec - start.tv_sec - 1;
+<a name="l00018"></a>00018         temp.tv_nsec = 1000000000 + end.tv_nsec - start.tv_nsec;
+<a name="l00019"></a>00019     } <span class="keywordflow">else</span> {
+<a name="l00020"></a>00020         temp.tv_sec = end.tv_sec - start.tv_sec;
+<a name="l00021"></a>00021         temp.tv_nsec = end.tv_nsec - start.tv_nsec;    
+<a name="l00022"></a>00022     }   
+<a name="l00023"></a>00023     <span class="keywordflow">return</span> temp;
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="_pomiar_czasu_8cpp.html#a2bcb7f87cd76988f6531d17925bdaca0">00028</a> <span class="keywordtype">void</span> <a class="code" href="_pomiar_czasu_8hh.html#a2bcb7f87cd76988f6531d17925bdaca0" title="Definicja funkcji dokonujacej pomiaru czasu dzialania kazdego z algorytmow.">BenchmarkLoad</a>(<span class="keywordtype">string</span> FileName) {
+<a name="l00029"></a>00029 <a class="code" href="class_stack___version1.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version1</a> S1;
+<a name="l00030"></a>00030 <a class="code" href="class_stack___version2.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version2</a> S2;
+<a name="l00031"></a>00031 <a class="code" href="class_stack___version3.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version3</a> S3;
+<a name="l00032"></a>00032 <a class="code" href="class_queue___version1.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version1</a> Q1;
+<a name="l00033"></a>00033 <a class="code" href="class_queue___version2.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version2</a> Q2; 
+<a name="l00034"></a>00034 <span class="keyword">struct </span>timespec time1, time2;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 cout &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;FUNCTION&quot;</span> &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;WORKTIME&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00041"></a>00041 S1.<a class="code" href="class_stack___version1.html#abbca07c8c6a4118a5e8e42eef9532aa3" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00042"></a>00042 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00043"></a>00043 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00044"></a>00044 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF STACK VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00047"></a>00047 S2.<a class="code" href="class_stack___version2.html#a3c21299dd8bf0b3f36bf9a04cafd1650" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00048"></a>00048 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00049"></a>00049 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00050"></a>00050 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF STACK VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00053"></a>00053 S3.<a class="code" href="class_stack___version3.html#a6d9aef51c892a45e16dff25aa29fbeda" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00054"></a>00054 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00055"></a>00055 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00056"></a>00056 cout &lt;&lt; <span class="stringliteral">&quot;LIST IMPLEMENTATION OF STACK&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00059"></a>00059 Q1.<a class="code" href="class_queue___version1.html#ab52fd92b32ef98c38da0e31ba9c1d850" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00060"></a>00060 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00061"></a>00061 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00062"></a>00062 cout &lt;&lt; <span class="stringliteral">&quot;ARRAY IMPLEMENTATION OF QUEUE&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00065"></a>00065 Q2.<a class="code" href="class_queue___version2.html#a627368703b3aa0a1885757a06f450807" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00066"></a>00066 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00067"></a>00067 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00068"></a>00068 cout &lt;&lt; <span class="stringliteral">&quot;LIST IMPLEMENTATION OF QUEUE&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; (<a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec)/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 
+<a name="l00074"></a><a class="code" href="_pomiar_czasu_8cpp.html#a41bd2f835bc5138c0b14a7c6ae8dbd5d">00074</a> <span class="keywordtype">void</span> <a class="code" href="_pomiar_czasu_8hh.html#a41bd2f835bc5138c0b14a7c6ae8dbd5d" title="Definicja funkcji dokonujacej pomiaru czasu sortowania kazdego z algorytmow.">BenchmarkSort</a> (<span class="keywordtype">string</span> FileName) 
+<a name="l00075"></a>00075 {
+<a name="l00076"></a>00076         <a class="code" href="class_stack___version1.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version1</a> S11, S12;
+<a name="l00077"></a>00077         <a class="code" href="class_stack___version2.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version2</a> S21, S22;
+<a name="l00078"></a>00078         <a class="code" href="class_stack___version3.html" title="Modeluje pojecie stosu i metod z nim zwiazanych.">Stack_Version3</a> S31, S32;
+<a name="l00079"></a>00079         <a class="code" href="class_queue___version1.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version1</a> Q11, Q12;
+<a name="l00080"></a>00080         <a class="code" href="class_queue___version2.html" title="Modeluje pojecie kolejki i metod z nia zwiazanych.">Queue_Version2</a> Q21, Q22; 
+<a name="l00081"></a>00081         <span class="keyword">struct </span>timespec time1, time2;
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 cout &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;FUNCTION&quot;</span> &lt;&lt; setw(25) &lt;&lt; <span class="stringliteral">&quot;SORTTIME&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 S11.<a class="code" href="class_stack___version1.html#abbca07c8c6a4118a5e8e42eef9532aa3" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00086"></a>00086 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00087"></a>00087 S11.<a class="code" href="class_stack___version1.html#ab2b9bc25d41e057867dcdc7ef3177c2c" title="Algorytm Sortowania szybkiego.">QuickSort</a>(0,S11.<a class="code" href="class_stack___version1.html#aa613bc2c048b6ec94fa4e81127409f95" title="Ilosc elementow na stosie.">Sizee</a>());
+<a name="l00088"></a>00088 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00089"></a>00089 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00090"></a>00090 cout &lt;&lt; <span class="stringliteral">&quot;QUICKSORT OF STACK VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 S12.<a class="code" href="class_stack___version1.html#abbca07c8c6a4118a5e8e42eef9532aa3" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00093"></a>00093 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00094"></a>00094 S12.<a class="code" href="class_stack___version1.html#a73203fa224246683bd1cd094346777b1" title="Algorytm sortowania przez scalanie.">MergeSort</a>(0,S12.<a class="code" href="class_stack___version1.html#aa613bc2c048b6ec94fa4e81127409f95" title="Ilosc elementow na stosie.">Sizee</a>());
+<a name="l00095"></a>00095 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00096"></a>00096 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00097"></a>00097 cout &lt;&lt; <span class="stringliteral">&quot;MERGESORT OF STACK VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 S21.<a class="code" href="class_stack___version2.html#a3c21299dd8bf0b3f36bf9a04cafd1650" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00100"></a>00100 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00101"></a>00101 S21.<a class="code" href="class_stack___version2.html#a06e16f153236b4c0098422201e801b74" title="Algorytm Sortowania szybkiego.">QuickSort</a>(0,S21.<a class="code" href="class_stack___version2.html#ae75aa506a0bbd202ba7c5a626db8184d" title="Ilosc elementow na stosie.">Sizee</a>());
+<a name="l00102"></a>00102 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00103"></a>00103 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00104"></a>00104 cout &lt;&lt; <span class="stringliteral">&quot;QUICKSORT OF STACK VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 S22.<a class="code" href="class_stack___version2.html#a3c21299dd8bf0b3f36bf9a04cafd1650" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00107"></a>00107 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00108"></a>00108 S22.<a class="code" href="class_stack___version2.html#a6a599c69982256d65e8f99ef0bb3679d" title="Algorytm sortowania przez scalanie.">MergeSort</a>(0,S22.<a class="code" href="class_stack___version2.html#ae75aa506a0bbd202ba7c5a626db8184d" title="Ilosc elementow na stosie.">Sizee</a>());
+<a name="l00109"></a>00109 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00110"></a>00110 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00111"></a>00111 cout &lt;&lt; <span class="stringliteral">&quot;MERGESORT OF STACK VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 S31.<a class="code" href="class_stack___version3.html#a6d9aef51c892a45e16dff25aa29fbeda" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00114"></a>00114 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00115"></a>00115 S31.<a class="code" href="class_stack___version3.html#ab8fc1cbac610bdc1bdb842c5b34902fa" title="Algorytm sortowania szybkiego.">QuickSort</a>();
+<a name="l00116"></a>00116 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00117"></a>00117 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00118"></a>00118 cout &lt;&lt; <span class="stringliteral">&quot;QUICKSORT OF STACK VERSION 3&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 S32.<a class="code" href="class_stack___version3.html#a6d9aef51c892a45e16dff25aa29fbeda" title="Metoda wczytująca dane na stos z pliku.">Load</a>(FileName.c_str());
+<a name="l00121"></a>00121 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00122"></a>00122 S32.<a class="code" href="class_stack___version3.html#aa1371299e49460e1bd99d1107c3c1786" title="Algorytm sortowania przez scalanie.">MergeSort</a>();
+<a name="l00123"></a>00123 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00124"></a>00124 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00125"></a>00125 cout &lt;&lt; <span class="stringliteral">&quot;MERGESORT OF STACK VERSION 3&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 Q11.<a class="code" href="class_queue___version1.html#ab52fd92b32ef98c38da0e31ba9c1d850" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00128"></a>00128 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00129"></a>00129 Q11.<a class="code" href="class_queue___version1.html#abf7c3cfad0e595e8325cc86ee90a33ee" title="Algorytm Sortowania szybkiego.">QuickSort</a>(0,Q11.<a class="code" href="class_queue___version1.html#a1e3a6185c58945c788fe55433459f4de" title="Ilosc elementow w kolejce.">Size</a>());
+<a name="l00130"></a>00130 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00131"></a>00131 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00132"></a>00132 cout &lt;&lt; <span class="stringliteral">&quot;QUICKSORT OF QUEUE VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134 Q12.<a class="code" href="class_queue___version1.html#ab52fd92b32ef98c38da0e31ba9c1d850" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00135"></a>00135 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00136"></a>00136 Q12.<a class="code" href="class_queue___version1.html#ab526c01b8c036bc4fc71ae89fbadd978" title="Algorytm sortowania przez scalanie.">MergeSort</a>(0,Q12.<a class="code" href="class_queue___version1.html#a1e3a6185c58945c788fe55433459f4de" title="Ilosc elementow w kolejce.">Size</a>());
+<a name="l00137"></a>00137 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00138"></a>00138 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00139"></a>00139 cout &lt;&lt; <span class="stringliteral">&quot;MERGESORT OF QUEUE VERSION 1&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 Q21.<a class="code" href="class_queue___version2.html#a627368703b3aa0a1885757a06f450807" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00142"></a>00142 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00143"></a>00143 Q21.<a class="code" href="class_queue___version2.html#a5f14bb7be262608f53113fa4f21b1e03" title="Algorytm sortowania szybkiego.">QuickSort</a>();
+<a name="l00144"></a>00144 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00145"></a>00145 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00146"></a>00146 cout &lt;&lt; <span class="stringliteral">&quot;QUICKSORT OF QUEUE VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 Q22.<a class="code" href="class_queue___version2.html#a627368703b3aa0a1885757a06f450807" title="Metoda wczytująca dane do kolejki z pliku.">Load</a>(FileName.c_str());
+<a name="l00149"></a>00149 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00150"></a>00150 Q22.<a class="code" href="class_queue___version2.html#a1a6bf64cae4395f1a2a7ce46f6ed726b" title="Algorytm sortowania przez scalanie.">MergeSort</a>();
+<a name="l00151"></a>00151 clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00152"></a>00152 cout &lt;&lt; setw(40) &lt;&lt; left;
+<a name="l00153"></a>00153 cout &lt;&lt; <span class="stringliteral">&quot;MERGESORT OF QUEUE VERSION 2&quot;</span> &lt;&lt; setw(7) &lt;&lt; right &lt;&lt; <a class="code" href="_pomiar_czasu_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000 &lt;&lt; <span class="stringliteral">&quot; \u00B5&quot;</span> &lt;&lt; <span class="stringliteral">&quot;s&quot;</span> &lt;&lt; endl;
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_pomiar_czasu_8cpp.html">PomiarCzasu.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Mon Mar 24 2014 00:32:42 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

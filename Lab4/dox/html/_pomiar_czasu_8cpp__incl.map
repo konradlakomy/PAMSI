@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_pomiar_czasu_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu algorytmu." alt="" coords="105,83,223,112"/>
+<area shape="rect" id="node5" href="$main_8hh.html" title="Definicja modulu glownego programu." alt="" coords="265,160,332,189"/>
+<area shape="rect" id="node21" href="$_stackk_8hh.html" title="Stackk.hh" alt="" coords="297,83,377,112"/>
+<area shape="rect" id="node24" href="$_queue_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kolejce." alt="" coords="401,83,479,112"/>
+</map>

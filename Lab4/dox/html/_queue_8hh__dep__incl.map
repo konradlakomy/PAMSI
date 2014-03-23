@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Modul glowny programu." alt="" coords="5,83,80,112"/>
+<area shape="rect" id="node5" href="$_pomiar_czasu_8cpp.html" title="Modul odpowiedzialny za pomiar czasu algorytmu." alt="" coords="104,83,229,112"/>
+<area shape="rect" id="node7" href="$_queue_8cpp.html" title="Modul odpowiedzialny za operacje na kolejce." alt="" coords="253,83,339,112"/>
+</map>
