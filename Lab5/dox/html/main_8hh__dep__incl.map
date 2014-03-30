@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_pomiar_czasu_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu algorytmu." alt="" coords="151,83,268,112"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Modul glowny programu." alt="" coords="117,160,192,189"/>
+<area shape="rect" id="node7" href="$_pomiar_czasu_8cpp.html" title="Modul odpowiedzialny za pomiar czasu algorytmu." alt="" coords="216,160,341,189"/>
+<area shape="rect" id="node9" href="$_queue_8hh.html" title="Definicja modułu odpowiedzialnego za operacje na kolejce." alt="" coords="343,83,420,112"/>
+<area shape="rect" id="node15" href="$_stackk_8hh.html" title="Stackk.hh" alt="" coords="47,83,127,112"/>
+<area shape="rect" id="node13" href="$_queue_8cpp.html" title="Modul odpowiedzialny za operacje na kolejce." alt="" coords="365,160,451,189"/>
+<area shape="rect" id="node19" href="$_stackk_8cpp.html" title="Modul odpowiedzialny za operacje na stosie." alt="" coords="5,160,93,189"/>
+</map>
