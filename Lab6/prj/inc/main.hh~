@@ -1,0 +1,7 @@
+#ifndef MAIN_HH
+#define MAIN_HH
+#include <iostream>
+#include <list>
+#include <string>
+using namespace std;
+#endif

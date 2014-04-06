@@ -1,0 +1,27 @@
+/*!
+  \mainpage  Tablica asocjacyjna
+  \author Konrad Łakomy
+  \date 06.04.2014
+  \version 1.0
+
+ Program zawiera implementacje tablicy asocjacyjnej zrealizowanej na liście 
+korzystając z biblioteki STL. \n
+
+
+\n \n 
+	Zaimplementowane metody to: \n \n
+			- long Size()\n
+
+			- bool IsEmpty()\n
+
+			- bool Print()\n 
+
+			- bool AddItem(string name, T data)\n
+
+			- bool DelItem(string name)\n
+
+			- T GetValue(string name)\n
+
+			- bool FindKey(T data)\n
+
+ */
