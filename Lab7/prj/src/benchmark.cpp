@@ -51,20 +51,20 @@ void AccessTime()
 	//AssocArray3 <int> arr3;
 
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
-	for(int i=0; i<10; i++) 
+	for(int i=0; i<10000; i++) 
 		arr1.AddItem(MakeKey(10) , rand());
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
-	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " \u00B5" << "s" << endl;
+	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " s" << endl;
 
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
 	arr1.GetValue("J4ogHFZQxw");
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
-	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " \u00B5" << "s" << endl;
+	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " s" << endl;
 
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
 	arr1.DelItem("J4ogHFZQxw");
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
-	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " \u00B5" << "s" << endl;
+	cout << endl << "ACCESS TIME: " <<  (double)diff(time1, time2).tv_nsec/1000000000 << " s" << endl;
 
 
 
