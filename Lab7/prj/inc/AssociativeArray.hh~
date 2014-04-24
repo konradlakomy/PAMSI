@@ -1,0 +1,21 @@
+#ifndef ASSOCIATIVEARRAY_HH
+#define ASSOCIATIVEARRAY_HH
+#include "main.hh"
+
+
+template <class T>
+class AssocArray
+{
+private:
+	typedef struct _Data
+	{
+		T value;
+		string key;
+	} Data ;
+	list <Data> Array;
+
+public:
+	long Size();
+	bool IsEmpty();
+};
+#endif
