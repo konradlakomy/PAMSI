@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy hash.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('hash_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">hash.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="hash_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef HASH_HH</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define HASH_HH</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> tableSize = 10;
+<a name="l00007"></a>00007 
+<a name="l00023"></a>00023 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00024"></a><a class="code" href="class_assoc_array3.html">00024</a> <span class="keyword">class </span><a class="code" href="class_assoc_array3.html" title="Modeluje pojecie tablicy asocjacyjnej i metod z nia zwiazanych.">AssocArray3</a>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">private</span>:
+<a name="l00028"></a>00028 
+<a name="l00035"></a><a class="code" href="struct_assoc_array3_1_1item.html">00035</a>         <span class="keyword">struct </span><a class="code" href="struct_assoc_array3_1_1item.html" title="Struktura tworzaca tablice asocjacyjna.">item</a> 
+<a name="l00036"></a>00036         {
+<a name="l00037"></a><a class="code" href="struct_assoc_array3_1_1item.html#a455d1d2ac20bce0f0b44846de6e1c214">00037</a>                 <span class="keywordtype">string</span> <a class="code" href="struct_assoc_array3_1_1item.html#a455d1d2ac20bce0f0b44846de6e1c214">name</a>;
+<a name="l00038"></a><a class="code" href="struct_assoc_array3_1_1item.html#ab18fc64dd34d44c6cd3ee86a07c51c94">00038</a>                 T <a class="code" href="struct_assoc_array3_1_1item.html#ab18fc64dd34d44c6cd3ee86a07c51c94">data</a>;
+<a name="l00039"></a><a class="code" href="struct_assoc_array3_1_1item.html#a91e61262dc98fa2ea442686bb38e2cdb">00039</a>                 <a class="code" href="struct_assoc_array3_1_1item.html" title="Struktura tworzaca tablice asocjacyjna.">item</a>* <a class="code" href="struct_assoc_array3_1_1item.html#a91e61262dc98fa2ea442686bb38e2cdb">next</a>;
+<a name="l00040"></a>00040         };
+<a name="l00041"></a>00041 
+<a name="l00042"></a><a class="code" href="class_assoc_array3.html#a9245dcb3b140e76e96d505dd33aeabf3">00042</a> <a class="code" href="struct_assoc_array3_1_1item.html" title="Struktura tworzaca tablice asocjacyjna.">item</a>* <a class="code" href="class_assoc_array3.html#a9245dcb3b140e76e96d505dd33aeabf3">HashTable</a>[tableSize];
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">public</span>:
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">/*</span>
+<a name="l00047"></a>00047 <span class="comment"> * \brief Konstruktor tworzacy tablice asocjacyjna.</span>
+<a name="l00048"></a>00048 <span class="comment"> *</span>
+<a name="l00049"></a>00049 <span class="comment"> */</span>
+<a name="l00050"></a>00050         <a class="code" href="class_assoc_array3.html#ae3a9645e56dd8977f1c986569a448bb2">AssocArray3</a>();
+<a name="l00051"></a>00051 
+<a name="l00060"></a>00060         <span class="keywordtype">int</span> <a class="code" href="class_assoc_array3.html#acc11b5595ad6b8205212bc405deb0493" title="Metoda odpowiedzialna za haszowanie elementów tablicy.">Hash</a>(<span class="keywordtype">string</span> key);
+<a name="l00061"></a>00061 
+<a name="l00070"></a>00070         <span class="keywordtype">int</span> <a class="code" href="class_assoc_array3.html#a9e4876b498600deb0d60254a39b914ca" title="Metoda odpowiedzialna za zliczanie elementow pod danym indeksem.">NumberOfItemsInIndex</a>(<span class="keywordtype">int</span> index);
+<a name="l00071"></a>00071 
+<a name="l00078"></a>00078         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a347f2b50360f413a92f0689db1244b2b" title="Metoda pozwalajaca na sprawdzenie czy tablica jest pusta.">IsEmpty</a>();
+<a name="l00079"></a>00079 
+<a name="l00090"></a>00090         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a3e34f3f501e2698c73fabb466811d059" title="Metoda pozwalajaca na dodawanie nowego elementu do tablicy.">AddItem</a>(<span class="keywordtype">string</span> name, T data);
+<a name="l00091"></a>00091 
+<a name="l00098"></a>00098         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a29caeb2928937538f5485135a288c4a9" title="Metoda pozwalajaca na wyswietlenie elementow tablicy.">PrintTable</a>();
+<a name="l00099"></a>00099 
+<a name="l00108"></a>00108         T <a class="code" href="class_assoc_array3.html#a9e2142b5a84d99a7c7c3bf14f92643cb" title="Metoda pozwalajaca wyszukac element w tablicy na podstawie klucza.">GetValue</a>(<span class="keywordtype">string</span> name);
+<a name="l00109"></a>00109 
+<a name="l00118"></a>00118         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a5f20d332f1410aee80ec4360b271f5d3" title="Metoda pozwalajaca wyszukac klucz w tablicy na podstawie podanej wartosci.">FindKey</a>(T data);
+<a name="l00119"></a>00119 
+<a name="l00128"></a>00128         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a609d459e7a40dc5c5f873a0f56790766" title="Metoda pozwalajaca na usuwanie elementu z tablicy.">RemoveItem</a>(<span class="keywordtype">string</span> name);
+<a name="l00129"></a>00129 
+<a name="l00140"></a>00140         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array3.html#a9e27ccbd2970d12a631461737facff04" title="Metoda pozwalajaca na zmiane wartosci w tablicy.">ChangeValue</a>(<span class="keywordtype">string</span> name, T data);
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 };
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="hash_8hh.html">hash.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Wed Apr 23 2014 21:47:30 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

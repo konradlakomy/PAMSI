@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy list.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('list_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">list.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="list_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="list_8hh.html" title="Definicja modułu odpowiedzialnego za za implementacje tablicy asocjacyjnej na strukturze listy...">list.hh</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00011"></a>00011 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00012"></a><a class="code" href="class_assoc_array1.html#a73afbfa10e60473dad5b374a7ddc49e5">00012</a> <span class="keywordtype">long</span> <a class="code" href="class_assoc_array1.html#a73afbfa10e60473dad5b374a7ddc49e5" title="Metoda pozwalajaca na sprawdzenie rozmiaru tablicy.">AssocArray1&lt;T&gt;::Size</a>()
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014         <span class="keywordflow">return</span> array.size();
+<a name="l00015"></a>00015 }
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00018"></a><a class="code" href="class_assoc_array1.html#a81a9eec86194a3173c44d4f06afa6a05">00018</a> <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a81a9eec86194a3173c44d4f06afa6a05" title="Metoda pozwalajaca na sprawdzenie czy tablica jest pusta.">AssocArray1&lt;T&gt;::IsEmpty</a>()
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020         <span class="keywordflow">return</span> array.empty();
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00024"></a><a class="code" href="class_assoc_array1.html#a7d98b74e7fb1e699fd1df2a8f6e43bdc">00024</a> <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a7d98b74e7fb1e699fd1df2a8f6e43bdc" title="Metoda pozwalajaca na wyswietlenie elementow tablicy.">AssocArray1&lt;T&gt;::Print</a>() 
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026         <span class="keywordflow">if</span>(!IsEmpty())
+<a name="l00027"></a>00027         {
+<a name="l00028"></a>00028                 <span class="keyword">typename</span> std::list&lt;Data&gt;::const_iterator it;
+<a name="l00029"></a>00029                 cout &lt;&lt; endl &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;KEY&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;VALUE&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00030"></a>00030                 <span class="keywordflow">for</span>(it=array.begin(); it!=array.end(); ++it) 
+<a name="l00031"></a>00031                         cout &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; (it-&gt;name) &lt;&lt; setw(20) &lt;&lt; (it-&gt;data) &lt;&lt; endl &lt;&lt; endl;
+<a name="l00032"></a>00032                 cout &lt;&lt; endl;
+<a name="l00033"></a>00033                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00034"></a>00034         }
+<a name="l00035"></a>00035         <span class="keywordflow">else</span>
+<a name="l00036"></a>00036         {
+<a name="l00037"></a>00037                 cout &lt;&lt;<span class="stringliteral">&quot;Tablica jest pusta!!!&quot;</span> &lt;&lt; endl;
+<a name="l00038"></a>00038                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00039"></a>00039         }
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00043"></a><a class="code" href="class_assoc_array1.html#a1ed27c89e0e7395a94f97de27d59c3b1">00043</a> <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a1ed27c89e0e7395a94f97de27d59c3b1" title="Metoda pozwalajaca na dodawanie nowego elementu do tablicy.">AssocArray1&lt;T&gt;::AddItem</a>(<span class="keywordtype">string</span> name, T data)
+<a name="l00044"></a>00044 {
+<a name="l00045"></a>00045         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it1, it2;
+<a name="l00046"></a>00046         <a class="code" href="struct_assoc_array1_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> d;
+<a name="l00047"></a>00047         d.<a class="code" href="struct_assoc_array1_1_1___data.html#a311e9244351eec196d589a681a6c336d">name</a> = name;
+<a name="l00048"></a>00048         d.<a class="code" href="struct_assoc_array1_1_1___data.html#a65c61bab84796857027d4557b24a9ab1">data</a> = data;
+<a name="l00049"></a>00049         it1=Key(name);
+<a name="l00050"></a>00050         <span class="keywordflow">if</span>(it1!=array.end()) 
+<a name="l00051"></a>00051         {
+<a name="l00052"></a>00052                 array.insert(it1,d);
+<a name="l00053"></a>00053                 array.erase(it1);
+<a name="l00054"></a>00054         }
+<a name="l00055"></a>00055         <span class="keywordflow">else</span> 
+<a name="l00056"></a>00056         {
+<a name="l00057"></a>00057                 it2=lower_bound(array.begin(), array.end(), name, <a class="code" href="struct_assoc_array1_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a>());
+<a name="l00058"></a>00058                 array.insert(it2,d);                    
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00064"></a><a class="code" href="class_assoc_array1.html#a4531653c2893bc766adaa9d16562f678">00064</a> <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a4531653c2893bc766adaa9d16562f678" title="Metoda pozwalajaca na usuwanie elementu z tablicy.">AssocArray1&lt;T&gt;::DelItem</a>(<span class="keywordtype">string</span> name) 
+<a name="l00065"></a>00065 {
+<a name="l00066"></a>00066         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it=Key(name);
+<a name="l00067"></a>00067         <span class="keywordflow">if</span>(it!=array.end())
+<a name="l00068"></a>00068         {                               
+<a name="l00069"></a>00069                 array.erase(it);
+<a name="l00070"></a>00070                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00071"></a>00071         }
+<a name="l00072"></a>00072         <span class="keywordflow">else</span> 
+<a name="l00073"></a>00073         {
+<a name="l00074"></a>00074                 cout&lt;&lt;<span class="stringliteral">&quot;Podany klucz nie istnieje!!!&quot;</span> &lt;&lt; endl;
+<a name="l00075"></a>00075                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077 }
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00080"></a><a class="code" href="class_assoc_array1.html#abe79da939735ef2cd04357dc443fa989">00080</a> T <a class="code" href="class_assoc_array1.html#abe79da939735ef2cd04357dc443fa989" title="Metoda pozwalajaca wyszukac element w tablicy na podstawie klucza.">AssocArray1&lt;T&gt;::GetValue</a>(<span class="keywordtype">string</span> name) 
+<a name="l00081"></a>00081 {
+<a name="l00082"></a>00082         cout &lt;&lt; endl &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;KEY&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;VALUE&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00083"></a>00083         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it=Key(name);
+<a name="l00084"></a>00084         <span class="keywordflow">if</span>(it!=array.end())
+<a name="l00085"></a>00085         {       
+<a name="l00086"></a>00086                 cout &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; name &lt;&lt; setw(20) &lt;&lt; it-&gt;data &lt;&lt; endl;                       
+<a name="l00087"></a>00087                 <span class="keywordflow">return</span> it-&gt;data;
+<a name="l00088"></a>00088         }
+<a name="l00089"></a>00089         <span class="keywordflow">else</span> 
+<a name="l00090"></a>00090         {
+<a name="l00091"></a>00091                 cout&lt;&lt;<span class="stringliteral">&quot;Nie znaleziono!!!&quot;</span> &lt;&lt; endl;
+<a name="l00092"></a>00092                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00097"></a><a class="code" href="class_assoc_array1.html#ac92c3e588b47d957a6940e97a8bb6734">00097</a> <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#ac92c3e588b47d957a6940e97a8bb6734" title="Metoda pozwalajaca wyszukac klucz w tablicy na podstawie podanej wartosci.">AssocArray1&lt;T&gt;::FindKey</a>(T data) 
+<a name="l00098"></a>00098 {
+<a name="l00099"></a>00099         <span class="keywordtype">int</span> state=0;
+<a name="l00100"></a>00100         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it;
+<a name="l00101"></a>00101         cout &lt;&lt; endl &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;KEY&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;VALUE&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00102"></a>00102         <span class="keywordflow">for</span>(it=array.begin(); it!=array.end(); ++it) 
+<a name="l00103"></a>00103         {
+<a name="l00104"></a>00104                 <span class="keywordflow">if</span>(data==(it-&gt;data))
+<a name="l00105"></a>00105                 {                                       
+<a name="l00106"></a>00106                         cout &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; it-&gt;name &lt;&lt; setw(20) &lt;&lt; data &lt;&lt; endl;
+<a name="l00107"></a>00107                         state=1;
+<a name="l00108"></a>00108                 } 
+<a name="l00109"></a>00109         };
+<a name="l00110"></a>00110         <span class="keywordflow">if</span>(state==1) 
+<a name="l00111"></a>00111                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00112"></a>00112         <span class="keywordflow">else</span> 
+<a name="l00113"></a>00113         {
+<a name="l00114"></a>00114                 cout &lt;&lt; <span class="stringliteral">&quot;Nie znaleziono!!!&quot;</span> &lt;&lt; endl;
+<a name="l00115"></a>00115                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00116"></a>00116         }       
+<a name="l00117"></a>00117 }       
+<a name="l00118"></a>00118 
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="list_8cpp.html">list.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Wed Apr 23 2014 21:47:30 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

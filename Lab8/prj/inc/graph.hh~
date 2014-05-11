@@ -1,0 +1,80 @@
+#ifndef GRAPH_HH
+#define GRAPH_HH
+#include <iostream>
+#include <iomanip>
+#include <limits>
+#include <fstream>
+#include <stack>
+#include <queue>
+
+/*!
+ * \file
+ * \brief Definicja modułu odpowiedzialnego za implementacje struktury grafu.
+ *
+ *  Plik zawiera deklaracje klas oraz metod odpowiedzialnych za wykonywanie operacji na  
+ *  strukturze grafu.
+ */
+
+using namespace std;
+
+static const int MaxVertexAmount = 100;
+
+
+/*!
+ * \brief Modeluje pojecie grafu i metod z nim zwiazanych.
+ *
+ *  Deklaracja klasy Graph opisujacej 
+ *  struture danych grafu zaimplementowanej za pomocą macierzy sąsiedztwa.
+ */
+class Graph {
+private:
+
+	int **AdjacencyMatrix;
+	int Vertex;
+	int Edge;
+
+public:
+/*
+ * \brief Konstruktor tworzacy tablice asocjacyjna.
+ *
+ */
+	Graph();
+
+/*!
+ * \brief Metoda odpowiedzialna za wyświetlanie tablicy sąsiedztwa.
+ * 
+ * \return Funkcja nie zwraca żadnej wartości. 
+ *
+ */
+
+	void Print();
+
+/*!
+ * \brief Metoda pozwalajaca na dodawanie nowego elementu do tablicy.
+ * 
+ * \param[in] V1 - klucz tablicy.  
+ *
+ * \param[in] V2 - wartosc w tablicy.
+ *
+ * \param[in] C - wartosc w tablicy.
+ *
+ * \return Zwraca wartosc logiczna true jesli element zostal dodany.
+ *
+ */
+	void AddEdge(int V1, int V2, int C);
+
+	void DelEdge(int V1, int V2);
+
+	bool IsEdge(int V1, int V2);
+
+	void Neighbourhood(int V);
+
+	int Load(string NazwaPliku);
+
+	void DFS(int V1); 
+
+	void BFS(int V1);
+
+};
+
+#endif

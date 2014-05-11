@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy graph.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('graph_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">graph.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="graph_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="graph_8hh.html" title="Definicja modułu odpowiedzialnego za implementacje struktury grafu.">graph.hh</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00011"></a><a class="code" href="class_graph.html#ae4c72b8ac4d693c49800a4c7e273654f">00011</a> <a class="code" href="class_graph.html#ae4c72b8ac4d693c49800a4c7e273654f">Graph::Graph</a>() 
+<a name="l00012"></a>00012 {
+<a name="l00013"></a>00013         <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>*[MaxVertexAmount];
+<a name="l00014"></a>00014         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;MaxVertexAmount; i++)
+<a name="l00015"></a>00015                 <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[i] = <span class="keyword">new</span> <span class="keywordtype">int</span>[MaxVertexAmount];
+<a name="l00016"></a>00016                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;MaxVertexAmount; i++)
+<a name="l00017"></a>00017                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;MaxVertexAmount; j++)
+<a name="l00018"></a>00018                                 <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[i][j]=0;
+<a name="l00019"></a>00019 }
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="class_graph.html#a8401c9a52f79166e118653cb40416764">00021</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a8401c9a52f79166e118653cb40416764" title="Metoda odpowiedzialna za wyświetlanie tablicy sąsiedztwa.">Graph::Print</a>() 
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023         cout &lt;&lt; left &lt;&lt; setw(4) &lt;&lt; <span class="stringliteral">&quot;V&quot;</span>;
+<a name="l00024"></a>00024         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00025"></a>00025                 cout &lt;&lt; left &lt;&lt; setw(3) &lt;&lt; i;
+<a name="l00026"></a>00026         cout &lt;&lt; endl;
+<a name="l00027"></a>00027         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++)
+<a name="l00028"></a>00028         {
+<a name="l00029"></a>00029                 cout &lt;&lt; left &lt;&lt; i &lt;&lt; setw(3) &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>;
+<a name="l00030"></a>00030                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; j++) 
+<a name="l00031"></a>00031                 {
+<a name="l00032"></a>00032                         cout &lt;&lt; left &lt;&lt; setw(3) &lt;&lt; <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[i][j];
+<a name="l00033"></a>00033                 }
+<a name="l00034"></a>00034                 cout &lt;&lt; endl;
+<a name="l00035"></a>00035         }
+<a name="l00036"></a>00036         cout &lt;&lt; endl &lt;&lt; endl;
+<a name="l00037"></a>00037 }
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="class_graph.html#a45d5987990210f4d6f5643aea6a1533d">00039</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a45d5987990210f4d6f5643aea6a1533d" title="Metoda pozwalajaca na dodawanie nowej krawędzi grafu.">Graph::AddEdge</a>(<span class="keywordtype">int</span> V1, <span class="keywordtype">int</span> V2, <span class="keywordtype">int</span> C)
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041         <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V1][V2] = <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V2][V1] = C;
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a><a class="code" href="class_graph.html#a3a34dd085c3ced445b39d0754cca1fed">00044</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a3a34dd085c3ced445b39d0754cca1fed" title="Metoda pozwalajaca na usuwanie krawędzi z grafu.">Graph::DelEdge</a>(<span class="keywordtype">int</span> V1, <span class="keywordtype">int</span> V2)
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046         <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V1][V2] = <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V2][V1] = 0;
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="class_graph.html#acb0d4eaaf7b0be1cf0f62ed2659864a3">00049</a> <span class="keywordtype">bool</span> <a class="code" href="class_graph.html#acb0d4eaaf7b0be1cf0f62ed2659864a3" title="Metoda pozwalajaca na sprawdzenie czy istnieje bezpośrednie połączenie między wierzchołkami.">Graph::IsEdge</a>(<span class="keywordtype">int</span> V1, <span class="keywordtype">int</span> V2)
+<a name="l00050"></a>00050 {
+<a name="l00051"></a>00051         <span class="keywordflow">if</span>(<a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V1][V2] != 0 &amp;&amp; <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V2][V1] != 0) <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00052"></a>00052         <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00053"></a>00053 }
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="class_graph.html#a3e5850456bb47b4c2313a1ccd03d5cd6">00055</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a3e5850456bb47b4c2313a1ccd03d5cd6" title="Metoda pozwalajaca na wyświetlenie wierzchołków które są połączone z wierzchołkiem V...">Graph::Neighbourhood</a>(<span class="keywordtype">int</span> V)
+<a name="l00056"></a>00056 {
+<a name="l00057"></a>00057         cout &lt;&lt; left &lt;&lt; setw(3) &lt;&lt; <span class="stringliteral">&quot;V&quot;</span>;
+<a name="l00058"></a>00058         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00059"></a>00059                 cout &lt;&lt; left &lt;&lt; setw(3) &lt;&lt; i;
+<a name="l00060"></a>00060         cout &lt;&lt; endl;
+<a name="l00061"></a>00061         cout &lt;&lt; V &lt;&lt; <span class="stringliteral">&quot;: &quot;</span>;
+<a name="l00062"></a>00062         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++)
+<a name="l00063"></a>00063         {
+<a name="l00064"></a>00064                 cout &lt;&lt; left &lt;&lt; setw(3) &lt;&lt; <a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V][i];
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066         cout &lt;&lt; endl &lt;&lt; endl;
+<a name="l00067"></a>00067 }
+<a name="l00068"></a>00068 
+<a name="l00069"></a><a class="code" href="class_graph.html#aac0f7723a19a1b09597906a7172217cc">00069</a> <span class="keywordtype">int</span> <a class="code" href="class_graph.html#aac0f7723a19a1b09597906a7172217cc" title="Metoda pozwalajaca na wczytanie grafu do programu.">Graph::Load</a>(<span class="keywordtype">string</span> NazwaPliku)
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071         <span class="keywordtype">int</span> V1, V2, C;
+<a name="l00072"></a>00072         ifstream StrmWe;
+<a name="l00073"></a>00073         StrmWe.open(NazwaPliku.c_str());
+<a name="l00074"></a>00074         <span class="keywordflow">if</span>(!StrmWe.is_open()) 
+<a name="l00075"></a>00075         {
+<a name="l00076"></a>00076                 cerr &lt;&lt; <span class="stringliteral">&quot;!!! Plik nie zostal otwarty&quot;</span> &lt;&lt; endl; 
+<a name="l00077"></a>00077                 <span class="keywordflow">return</span> 1;
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079         StrmWe&gt;&gt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a> &gt;&gt; <a class="code" href="class_graph.html#a2f4fa5892c6345d30829cf2559139a19">Edge</a>;
+<a name="l00080"></a>00080         <span class="keywordflow">while</span>(!StrmWe.eof()) {
+<a name="l00081"></a>00081                 StrmWe&gt;&gt;V1&gt;&gt;V2&gt;&gt;C;
+<a name="l00082"></a>00082                 <span class="keywordflow">if</span> (StrmWe.fail()) {
+<a name="l00083"></a>00083                         StrmWe.clear();
+<a name="l00084"></a>00084                         StrmWe.ignore(numeric_limits&lt;int&gt;::max( ),<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00085"></a>00085                 } 
+<a name="l00086"></a>00086                 <span class="keywordflow">else</span> { 
+<a name="l00087"></a>00087                         <a class="code" href="class_graph.html#a45d5987990210f4d6f5643aea6a1533d" title="Metoda pozwalajaca na dodawanie nowej krawędzi grafu.">AddEdge</a>(V1,V2,C);
+<a name="l00088"></a>00088                 }
+<a name="l00089"></a>00089         }
+<a name="l00090"></a>00090         StrmWe.close();
+<a name="l00091"></a>00091         <span class="keywordflow">return</span> 0;
+<a name="l00092"></a>00092 }
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="class_graph.html#a95aa3e18f9e7e53a54ff50a58b761f6e">00094</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a95aa3e18f9e7e53a54ff50a58b761f6e" title="Metoda pozwalajaca na przeszukiwanie grafu w głąb.">Graph::DFS</a>(<span class="keywordtype">int</span> V1) 
+<a name="l00095"></a>00095 {
+<a name="l00096"></a>00096         <span class="keywordtype">bool</span> *visited = <span class="keyword">new</span> <span class="keywordtype">bool</span>[<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>];
+<a name="l00097"></a>00097         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00098"></a>00098                 visited[i] = <span class="keyword">false</span>;
+<a name="l00099"></a>00099         stack&lt;int&gt; S;
+<a name="l00100"></a>00100         S.push(V1);
+<a name="l00101"></a>00101         cout &lt;&lt; <span class="stringliteral">&quot;DFS:  &quot;</span>;
+<a name="l00102"></a>00102         <span class="keywordflow">while</span>(!S.empty())
+<a name="l00103"></a>00103         {
+<a name="l00104"></a>00104                 V1 = S.top();  S.pop();
+<a name="l00105"></a>00105                 <span class="keywordflow">if</span>(!visited[V1])
+<a name="l00106"></a>00106                         {
+<a name="l00107"></a>00107                                 visited[V1] = <span class="keyword">true</span>;
+<a name="l00108"></a>00108                                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00109"></a>00109                                 <span class="keywordflow">if</span>(<a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V1][i] &amp;&amp; !visited[i]) 
+<a name="l00110"></a>00110                                         S.push(i);
+<a name="l00111"></a>00111                                 cout &lt;&lt; V1 &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00112"></a>00112                         }
+<a name="l00113"></a>00113         } 
+<a name="l00114"></a>00114         cout &lt;&lt; endl &lt;&lt; endl;
+<a name="l00115"></a>00115 }
+<a name="l00116"></a>00116 
+<a name="l00117"></a><a class="code" href="class_graph.html#a6e18be162931d1eb94fa3f0330991608">00117</a> <span class="keywordtype">void</span> <a class="code" href="class_graph.html#a6e18be162931d1eb94fa3f0330991608" title="Metoda pozwalajaca na przeszukiwanie grafu wszerz.">Graph::BFS</a>(<span class="keywordtype">int</span> V1)
+<a name="l00118"></a>00118 {
+<a name="l00119"></a>00119         <span class="keywordtype">bool</span> *visited = <span class="keyword">new</span> <span class="keywordtype">bool</span>[<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>];
+<a name="l00120"></a>00120         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00121"></a>00121                 visited[i] = <span class="keyword">false</span>;
+<a name="l00122"></a>00122         queue&lt;int&gt; Q;
+<a name="l00123"></a>00123         Q.push(V1);
+<a name="l00124"></a>00124         cout &lt;&lt; <span class="stringliteral">&quot;BFS:  &quot;</span>;
+<a name="l00125"></a>00125         <span class="keywordflow">while</span>(!Q.empty())
+<a name="l00126"></a>00126         {
+<a name="l00127"></a>00127                 V1 = Q.front();  Q.pop();
+<a name="l00128"></a>00128                 <span class="keywordflow">if</span>(!visited[V1])
+<a name="l00129"></a>00129                 {
+<a name="l00130"></a>00130                         visited[V1] = <span class="keyword">true</span>;
+<a name="l00131"></a>00131                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_graph.html#affa3f7ace0520662001279c177efbfcf">Vertex</a>; i++) 
+<a name="l00132"></a>00132                                 <span class="keywordflow">if</span>(<a class="code" href="class_graph.html#a1012922ca22c7626da0cf568db7383c0">AdjacencyMatrix</a>[V1][i] &amp;&amp; !visited[i]) 
+<a name="l00133"></a>00133                                         Q.push(i);
+<a name="l00134"></a>00134                                 cout &lt;&lt; V1 &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00135"></a>00135                 }
+<a name="l00136"></a>00136         } 
+<a name="l00137"></a>00137         cout &lt;&lt; endl &lt;&lt; endl;
+<a name="l00138"></a>00138 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="graph_8cpp.html">graph.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Sun May 11 2014 23:39:47 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
