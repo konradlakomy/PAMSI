@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$_pomiar_czasu_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu algorytmu." alt="" coords="63,83,180,112"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Modul glowny programu." alt="" coords="5,160,80,189"/>
-<area shape="rect" id="node7" href="$_pomiar_czasu_8cpp.html" title="Modul odpowiedzialny za pomiar czasu algorytmu." alt="" coords="137,160,263,189"/>
-<area shape="rect" id="node9" href="$_funkcje_8cpp.html" title="Modul odpowiedzialny za operacje na kontenerach tablic." alt="" coords="255,83,348,112"/>
-</map>
