@@ -1,0 +1,110 @@
+#include "array.hh"
+
+template <class T>
+long AssocArray<T>::Size()
+{
+	return array.size();
+}
+
+template <class T>
+bool AssocArray<T>::IsEmpty()
+{
+	return array.empty();
+}
+
+template <class T>
+bool AssocArray<T>::Print() 
+{
+	if(!IsEmpty())
+	{
+		typename std::list<Data>::const_iterator it;
+		cout << endl << setw(20) << left << "KEY" << setw(20) << "VALUE" << endl << endl;
+		for(it=array.begin(); it!=array.end(); ++it) 
+			cout << setw(20) << left << (it->name) << setw(20) << (it->data) << endl;
+		cout << endl;
+		return true;
+	}
+	else
+	{
+		cout <<"Tablica jest pusta!!!" << endl;
+		return false;
+	}
+}
+
+template <class T>
+bool AssocArray<T>::AddItem(string name, T data)
+{
+	typename list<Data>::iterator it1, it2;
+	Data d;
+	d.name = name;
+        d.data = data;
+	it1=Key(name);
+	if(it1!=array.end()) 
+	{
+		array.insert(it1,d);
+		array.erase(it1);
+	}
+        else 
+	{
+		it2=lower_bound(array.begin(), array.end(), name, Compare());
+		array.insert(it2,d);			
+	}
+        return true;
+}
+
+template <class T>
+bool AssocArray<T>::DelItem(string name) 
+{
+	typename list<Data>::iterator it=Key(name);
+	if(it!=array.end())
+	{				
+		array.erase(it);
+		return true;
+	}
+	else 
+	{
+		cout<<"Podany klucz nie istnieje!!!" << endl;
+		return false;
+	}
+}
+
+template <class T>
+T AssocArray<T>::GetValue(string name) 
+{
+	cout << endl << setw(20) << left << "KEY" << setw(20) << "VALUE" << endl << endl;
+	typename list<Data>::iterator it=Key(name);
+	if(it!=array.end())
+	{	
+		cout << setw(20) << left << name << setw(20) << it->data << endl;			
+		return it->data;
+	}
+	else 
+	{
+		cout<<"Nie znaleziono!!!" << endl;
+		return false;
+	}
+}
+
+template <class T>
+bool AssocArray<T>::FindKey(T data) 
+{
+	int state=0;
+	typename list<Data>::iterator it;
+	cout << endl << setw(20) << left << "KEY" << setw(20) << "VALUE" << endl << endl;
+	for(it=array.begin(); it!=array.end(); ++it) 
+	{
+		if(data==(it->data))
+		{					
+			cout << setw(20) << left << it->name << setw(20) << data << endl;
+			state=1;
+		} 
+	};
+	if(state==1) 
+		return true;
+	else 
+	{
+		cout << "Nie znaleziono!!!" << endl;
+		return false;
+	}	
+}	
+
