@@ -1,0 +1,102 @@
+#include "PomiarCzasu.hh"
+#include "Stackk.hh"
+#include "Queue.hh"
+#include "main.hh"
+
+/*!
+ * \file
+ * \brief Modul odpowiedzialny za pomiar czasu algorytmu.
+ *
+ * Plik zawiera opisy funkcji odpowiedzialnych za obliczanie czasu
+ * wykonywania sie kazdego z algorytmow.
+ */
+
+timespec diff(timespec start, timespec end) {
+    timespec temp;
+    if((end.tv_nsec - start.tv_nsec) < 0) {
+        temp.tv_sec = end.tv_sec - start.tv_sec - 1;
+        temp.tv_nsec = 1000000000 + end.tv_nsec - start.tv_nsec;
+    } else {
+        temp.tv_sec = end.tv_sec - start.tv_sec;
+        temp.tv_nsec = end.tv_nsec - start.tv_nsec;    
+    }   
+    return temp;
+}
+
+
+void BenchmarkLoad(string FileName) {
+Stack_Version1 S1;
+Stack_Version2 S2;
+Queue_Version1 Q1;
+struct timespec time1, time2;
+
+
+
+cout << setw(25) << "FUNCTION" << setw(25) << "WORKTIME" << endl << endl;
+
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+S1.Load(FileName.c_str());
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+cout << setw(40) << left;
+cout << "ARRAY IMPLEMENTATION OF STACK VERSION 1" << setw(7) << right << diff(time1, time2).tv_nsec/1000 << " \u00B5" << "s" << endl;
+
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+S2.Load(FileName.c_str());
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+cout << setw(40) << left;
+cout << "ARRAY IMPLEMENTATION OF STACK VERSION 2" << setw(7) << right << diff(time1, time2).tv_nsec/1000 << " \u00B5" << "s" << endl;
+
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+Q1.Load(FileName.c_str());
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+cout << setw(40) << left;
+cout << "ARRAY IMPLEMENTATION OF QUEUE" << setw(7) << right << diff(time1, time2).tv_nsec/1000 << " \u00B5" << "s" << endl;
+
+
+}
+
+
+void BenchmarkSort (int Value) 
+{
+	Queue_Version1 Q1, Q2, Q3, Q4;
+	struct timespec time1, time2;
+	double t1;
+
+	cout << setw(25) << "FUNCTION" << setw(25) << "SORTTIME" << endl << endl;
+
+	Q1.Random(Value);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+	Q1.QuickSort1(0,Q1.Size()-1);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+	t1 = (double) diff(time1, time2).tv_nsec/1000000000;
+	cout << setw(40) << left;
+	cout << "QUICKSORT1" << setw(7) << right << t1 << "s" << endl;
+
+	Q2.Random(Value);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+	Q2.QuickSort2(0,Q2.Size()-1);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+	t1 = (double) diff(time1, time2).tv_nsec/1000000000;
+	cout << setw(40) << left;
+	cout << "QUICKSORT2" << setw(7) << right << t1 << "s" << endl;
+/*
+	Q3.Random(Value);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+	Q3.MergeSort(0,Q3.Size()-1);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+	t1 = (double) diff(time1, time2).tv_nsec/1000000000;
+	cout << setw(40) << left;
+	cout << "MERGESORT" << setw(7) << right << t1 << "s" << endl;
+
+	Q4.Random(Value);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time1); 
+	Q4.Built(Value-1);
+	Q4.Heap(Value-1);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &time2);
+	t1 = (double) diff(time1, time2).tv_nsec/1000000000;
+	cout << setw(40) << left;
+	cout << "HEAPSORT" << setw(7) << right << t1 << "s" << endl;
+
+
+*/
+}
