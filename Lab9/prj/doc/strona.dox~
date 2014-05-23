@@ -1,0 +1,42 @@
+/*!
+  \mainpage  Grafy implementacja
+  \author Konrad Łakomy
+  \date 11.05.2014
+  \version 1.0
+
+   Program zawiera implementacje struktury grafu w oparciu o macierz sąsiedzwa \n
+oraz implementacje metod przeszukiwania grafu w głąb DFS, BFS i A*. \n
+Wykonuję te operację dla różnego rodzaju zestawu danych wejściowych.
+
+
+\n \n 
+	Zaimplementowane metody to: \n \n
+	- Graph() \n
+
+	- void ShowMatrix() \n
+
+	- void AddEdge(int V1, int V2) \n
+
+	- void DelEdge(int V1, int V2) \n
+
+	- bool IsEdge(int V1, int V2) \n
+
+	- void Neighbourhood(int V) \n
+
+	- int Load(string NazwaPliku) \n
+	
+	- int PrintResult(stack<char> closedList, char nodeNo) \n
+
+	- void SortNodesByF(vector<char> &openList, int size) \n
+
+	- int Manhattan(node from, node to) \n
+
+	- void PrintNodes()
+
+	- void DFS(int V1) \n
+
+	- void BFS(int V1) \n
+
+	- int A_Star(char fromNode, char toNode) \n
+
+ */
