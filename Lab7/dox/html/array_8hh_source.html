@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy array.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('array_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">array.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="array_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ARRAY_HH</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ARRAY_HH</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;iomanip&gt;</span>
+<a name="l00008"></a>00008 <span class="keyword">using namespace </span>std;
+<a name="l00009"></a>00009 
+<a name="l00025"></a>00025 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00026"></a><a class="code" href="class_assoc_array.html">00026</a>         <span class="keyword">class </span><a class="code" href="class_assoc_array.html" title="Modeluje pojecie tablicy asocjacyjnej i metod z nia zwiazanych.">AssocArray</a>
+<a name="l00027"></a>00027         {
+<a name="l00028"></a>00028                 <span class="keyword">private</span>:
+<a name="l00029"></a>00029 
+<a name="l00036"></a><a class="code" href="struct_assoc_array_1_1___data.html">00036</a>                         <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_assoc_array_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">_Data</a>
+<a name="l00037"></a>00037                         {
+<a name="l00038"></a><a class="code" href="struct_assoc_array_1_1___data.html#accbf33ef80d2e15f5e62541a5babbb71">00038</a>                                 T <a class="code" href="struct_assoc_array_1_1___data.html#accbf33ef80d2e15f5e62541a5babbb71">data</a>;
+<a name="l00039"></a><a class="code" href="struct_assoc_array_1_1___data.html#ad888f5a5a2dc870d61cb558878fba9d0">00039</a>                                 <span class="keywordtype">string</span> <a class="code" href="struct_assoc_array_1_1___data.html#ad888f5a5a2dc870d61cb558878fba9d0">name</a>;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041                         } <a class="code" href="struct_assoc_array_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> ;
+<a name="l00042"></a>00042                         
+<a name="l00043"></a><a class="code" href="class_assoc_array.html#a7657ee9db453328b47be59b86307006e">00043</a>                         list&lt;Data&gt; <a class="code" href="class_assoc_array.html#a7657ee9db453328b47be59b86307006e">array</a>;
+<a name="l00044"></a>00044                 <span class="keyword">public</span>:
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
+<a name="l00053"></a><a class="code" href="struct_assoc_array_1_1_compare.html">00053</a>                         <span class="keyword">struct </span><a class="code" href="struct_assoc_array_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a> 
+<a name="l00054"></a>00054                         {
+<a name="l00055"></a>00055 
+<a name="l00066"></a><a class="code" href="struct_assoc_array_1_1_compare.html#ae5609d6e0b715834f3fede7b2d2832f9">00066</a>                                 <span class="keywordtype">bool</span> operator()(<a class="code" href="struct_assoc_array_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> a, <span class="keywordtype">string</span> name)<span class="keyword"> const</span>
+<a name="l00067"></a>00067 <span class="keyword">                                </span>{
+<a name="l00068"></a>00068                                         <span class="keywordflow">return</span> a.<a class="code" href="struct_assoc_array_1_1___data.html#ad888f5a5a2dc870d61cb558878fba9d0">name</a> &lt; name;
+<a name="l00069"></a>00069                                 }
+<a name="l00070"></a>00070 
+<a name="l00081"></a><a class="code" href="struct_assoc_array_1_1_compare.html#af36d39efc8135374cbb0157b0cb694e0">00081</a>                                 <span class="keywordtype">bool</span> operator()(<span class="keywordtype">string</span> name, <a class="code" href="struct_assoc_array_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> a)<span class="keyword"> const</span>
+<a name="l00082"></a>00082 <span class="keyword">                                </span>{
+<a name="l00083"></a>00083                                         <span class="keywordflow">return</span> name &lt; a.<a class="code" href="struct_assoc_array_1_1___data.html#ad888f5a5a2dc870d61cb558878fba9d0">name</a>; 
+<a name="l00084"></a>00084                                 }
+<a name="l00085"></a>00085                         };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 
+<a name="l00097"></a><a class="code" href="class_assoc_array.html#a99d44499ccc6b62b855b41acb102ee3c">00097</a>                         <span class="keyword">typename</span> list&lt;Data&gt;::iterator Key(<span class="keywordtype">string</span> name)
+<a name="l00098"></a>00098                         {
+<a name="l00099"></a>00099                                 <span class="keywordflow">if</span>(binary_search(array.begin(), array.end(), name, <a class="code" href="struct_assoc_array_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a>())) 
+<a name="l00100"></a>00100                                 {
+<a name="l00101"></a>00101                                         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it=lower_bound(array.begin(), array.end(), name, <a class="code" href="struct_assoc_array_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a>());
+<a name="l00102"></a>00102                                         <span class="keywordflow">return</span> it;
+<a name="l00103"></a>00103                                 }
+<a name="l00104"></a>00104                                 <span class="keywordflow">else</span> 
+<a name="l00105"></a>00105                                         <span class="keywordflow">return</span> array.end();
+<a name="l00106"></a>00106                         }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00115"></a>00115                         <span class="keywordtype">long</span> Size();
+<a name="l00116"></a>00116 
+<a name="l00123"></a>00123                         <span class="keywordtype">bool</span> IsEmpty();
+<a name="l00124"></a>00124 
+<a name="l00131"></a>00131                         <span class="keywordtype">bool</span> Print(); 
+<a name="l00132"></a>00132 
+<a name="l00144"></a>00144                         <span class="keywordtype">bool</span> AddItem(<span class="keywordtype">string</span> name, T data);
+<a name="l00145"></a>00145 
+<a name="l00155"></a>00155                         <span class="keywordtype">bool</span> DelItem(<span class="keywordtype">string</span> name); 
+<a name="l00156"></a>00156 
+<a name="l00166"></a>00166                         T GetValue(<span class="keywordtype">string</span> name);
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 
+<a name="l00177"></a>00177                         <span class="keywordtype">bool</span> FindKey(T data);
+<a name="l00178"></a>00178         };
+<a name="l00179"></a>00179 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="array_8hh.html">array.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Sun Apr 6 2014 19:16:43 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

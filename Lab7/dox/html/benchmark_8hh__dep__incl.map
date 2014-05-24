@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$main_8hh.html" title="Definicja modulu glownego programu." alt="" coords="224,83,290,112"/>
+<area shape="rect" id="node8" href="$benchmark_8cpp.html" title="Modul odpowiedzialny za pomiar czasu dostepu." alt="" coords="158,315,268,344"/>
+<area shape="rect" id="node6" href="$bst_8hh.html" title="Definicja modułu odpowiedzialnego za za implementacje tablicy asocjacyjnej na strukturze drzewa binar..." alt="" coords="26,160,85,189"/>
+<area shape="rect" id="node13" href="$hash_8hh.html" title="Definicja modułu odpowiedzialnego za za implementacje tablicy asocjacyjnej na strukturze tablicy hasz..." alt="" coords="181,160,248,189"/>
+<area shape="rect" id="node19" href="$list_8hh.html" title="Definicja modułu odpowiedzialnego za za implementacje tablicy asocjacyjnej na strukturze listy..." alt="" coords="272,160,328,189"/>
+<area shape="rect" id="node26" href="$main_8cpp.html" title="Modul glowny programu." alt="" coords="352,160,426,189"/>
+<area shape="rect" id="node10" href="$bst_8cpp.html" title="Modul odpowiedzialny za implementacje tablicy asocjacyjnej na drzewie binarnym." alt="" coords="24,237,88,267"/>
+<area shape="rect" id="node16" href="$hash_8cpp.html" title="Modul odpowiedzialny za implementacje tablicy asocjacyjnej na tablicy haszującej." alt="" coords="213,237,288,267"/>
+<area shape="rect" id="node22" href="$list_8cpp.html" title="Modul odpowiedzialny za implementacje tablicy asocjacyjnej na liście jednokierunkowej." alt="" coords="362,237,426,267"/>
+</map>

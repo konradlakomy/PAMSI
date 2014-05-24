@@ -1,0 +1,22 @@
+/*#include "list.hh"
+#include "list.cpp"
+#include "hash.hh"
+#include "hash.cpp"
+#include "bst.hh"
+#include "bst.cpp"
+#include "benchmark.hh"*/
+
+#include "main.hh"
+
+/*!
+ * \file
+ * \brief Modul glowny programu.
+ *
+ *  Plik zawiera opis funkcji main programu.
+ */
+
+int main()
+{
+AccessTime();
+return 0;
+}

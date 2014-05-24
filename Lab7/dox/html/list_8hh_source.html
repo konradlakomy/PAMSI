@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy list.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('list_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">list.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="list_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef LIST_HH</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define LIST_HH</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html" title="Definicja modulu glownego programu.">main.hh</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00021"></a>00021 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00022"></a><a class="code" href="class_assoc_array1.html">00022</a>         <span class="keyword">class </span><a class="code" href="class_assoc_array1.html" title="Modeluje pojecie tablicy asocjacyjnej i metod z nia zwiazanych.">AssocArray1</a>
+<a name="l00023"></a>00023         {
+<a name="l00024"></a>00024                 <span class="keyword">private</span>:
+<a name="l00025"></a>00025 
+<a name="l00032"></a><a class="code" href="struct_assoc_array1_1_1___data.html">00032</a>                         <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_assoc_array1_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">_Data</a>
+<a name="l00033"></a>00033                         {
+<a name="l00034"></a><a class="code" href="struct_assoc_array1_1_1___data.html#a65c61bab84796857027d4557b24a9ab1">00034</a>                                 T <a class="code" href="struct_assoc_array1_1_1___data.html#a65c61bab84796857027d4557b24a9ab1">data</a>;
+<a name="l00035"></a><a class="code" href="struct_assoc_array1_1_1___data.html#a311e9244351eec196d589a681a6c336d">00035</a>                                 <span class="keywordtype">string</span> <a class="code" href="struct_assoc_array1_1_1___data.html#a311e9244351eec196d589a681a6c336d">name</a>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037                         } <a class="code" href="class_assoc_array1.html#a13cb00e00d27b4d633c5d8073506826a" title="Struktura tworzaca tablice asocjacyjna.">Data</a> ;
+<a name="l00038"></a>00038                         
+<a name="l00039"></a><a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">00039</a>                         list&lt;Data&gt; <a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>;
+<a name="l00040"></a>00040                 <span class="keyword">public</span>:
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 
+<a name="l00049"></a><a class="code" href="struct_assoc_array1_1_1_compare.html">00049</a>                         <span class="keyword">struct </span><a class="code" href="struct_assoc_array1_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a> 
+<a name="l00050"></a>00050                         {
+<a name="l00051"></a>00051 
+<a name="l00062"></a><a class="code" href="struct_assoc_array1_1_1_compare.html#abb76f1d472d90af3a7d248e9fdd272c0">00062</a>                                 <span class="keywordtype">bool</span> <a class="code" href="struct_assoc_array1_1_1_compare.html#abb76f1d472d90af3a7d248e9fdd272c0" title="Metoda odpowiedzialna za porownywanie elementów tablicy.">operator()</a>(<a class="code" href="struct_assoc_array1_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> a, <span class="keywordtype">string</span> name)<span class="keyword"> const</span>
+<a name="l00063"></a>00063 <span class="keyword">                                </span>{
+<a name="l00064"></a>00064                                         <span class="keywordflow">return</span> a.<a class="code" href="struct_assoc_array1_1_1___data.html#a311e9244351eec196d589a681a6c336d">name</a> &lt; name;
+<a name="l00065"></a>00065                                 }
+<a name="l00066"></a>00066 
+<a name="l00077"></a><a class="code" href="struct_assoc_array1_1_1_compare.html#adafe9550749289a4c74e30243bd94868">00077</a>                                 <span class="keywordtype">bool</span> <a class="code" href="struct_assoc_array1_1_1_compare.html#abb76f1d472d90af3a7d248e9fdd272c0" title="Metoda odpowiedzialna za porownywanie elementów tablicy.">operator()</a>(<span class="keywordtype">string</span> name, <a class="code" href="struct_assoc_array1_1_1___data.html" title="Struktura tworzaca tablice asocjacyjna.">Data</a> a)<span class="keyword"> const</span>
+<a name="l00078"></a>00078 <span class="keyword">                                </span>{
+<a name="l00079"></a>00079                                         <span class="keywordflow">return</span> name &lt; a.<a class="code" href="struct_assoc_array1_1_1___data.html#a311e9244351eec196d589a681a6c336d">name</a>; 
+<a name="l00080"></a>00080                                 }
+<a name="l00081"></a>00081                         };
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 
+<a name="l00093"></a><a class="code" href="class_assoc_array1.html#a068420d4e7aaf178c1537f8d73fd8025">00093</a>                         <span class="keyword">typename</span> list&lt;Data&gt;::iterator <a class="code" href="class_assoc_array1.html#a068420d4e7aaf178c1537f8d73fd8025" title="Iterator tablicy asocjacyjnej.">Key</a>(<span class="keywordtype">string</span> name)
+<a name="l00094"></a>00094                         {
+<a name="l00095"></a>00095                                 <span class="keywordflow">if</span>(binary_search(<a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>.begin(), <a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>.end(), name, <a class="code" href="struct_assoc_array1_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a>())) 
+<a name="l00096"></a>00096                                 {
+<a name="l00097"></a>00097                                         <span class="keyword">typename</span> list&lt;Data&gt;::iterator it=lower_bound(<a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>.begin(), <a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>.end(), name, <a class="code" href="struct_assoc_array1_1_1_compare.html" title="Struktura porownujaca klucze tablicy asocjacyjnej.">Compare</a>());
+<a name="l00098"></a>00098                                         <span class="keywordflow">return</span> it;
+<a name="l00099"></a>00099                                 }
+<a name="l00100"></a>00100                                 <span class="keywordflow">else</span> 
+<a name="l00101"></a>00101                                         <span class="keywordflow">return</span> <a class="code" href="class_assoc_array1.html#aecb8b7466b8a8501f68be544a46198bf">array</a>.end();
+<a name="l00102"></a>00102                         }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00111"></a>00111                         <span class="keywordtype">long</span> <a class="code" href="class_assoc_array1.html#a73afbfa10e60473dad5b374a7ddc49e5" title="Metoda pozwalajaca na sprawdzenie rozmiaru tablicy.">Size</a>();
+<a name="l00112"></a>00112 
+<a name="l00119"></a>00119                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a81a9eec86194a3173c44d4f06afa6a05" title="Metoda pozwalajaca na sprawdzenie czy tablica jest pusta.">IsEmpty</a>();
+<a name="l00120"></a>00120 
+<a name="l00127"></a>00127                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a7d98b74e7fb1e699fd1df2a8f6e43bdc" title="Metoda pozwalajaca na wyswietlenie elementow tablicy.">Print</a>(); 
+<a name="l00128"></a>00128 
+<a name="l00140"></a>00140                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a1ed27c89e0e7395a94f97de27d59c3b1" title="Metoda pozwalajaca na dodawanie nowego elementu do tablicy.">AddItem</a>(<span class="keywordtype">string</span> name, T data);
+<a name="l00141"></a>00141 
+<a name="l00151"></a>00151                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a4531653c2893bc766adaa9d16562f678" title="Metoda pozwalajaca na usuwanie elementu z tablicy.">DelItem</a>(<span class="keywordtype">string</span> name); 
+<a name="l00152"></a>00152 
+<a name="l00162"></a>00162                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#a8e92fdd8320d8d09b1799cd6bba05fb3" title="Metoda pozwalajaca wyszukac element w tablicy na podstawie klucza.">GetValue</a>(<span class="keywordtype">string</span> name);
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 
+<a name="l00173"></a>00173                         <span class="keywordtype">bool</span> <a class="code" href="class_assoc_array1.html#ac92c3e588b47d957a6940e97a8bb6734" title="Metoda pozwalajaca wyszukac klucz w tablicy na podstawie podanej wartosci.">FindKey</a>(T data);
+<a name="l00174"></a>00174         };
+<a name="l00175"></a>00175 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="list_8hh.html">list.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Sat May 24 2014 14:09:18 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
