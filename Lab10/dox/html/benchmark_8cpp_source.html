@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy benchmark.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('benchmark_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">benchmark.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="benchmark_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="benchmark_8hh.html" title="Definicja modułu odpowiedzialnego za pomiar czasu przeszukiwania.">benchmark.hh</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="graph_8hh.html" title="Definicja modułu odpowiedzialnego za implementacje struktury grafu.">graph.hh</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="keyword">using namespace </span>std;
+<a name="l00006"></a>00006 
+<a name="l00016"></a><a class="code" href="benchmark_8cpp.html#a5959b2e100c03e81bd1c5049adf30165">00016</a> timespec <a class="code" href="benchmark_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(timespec start, timespec end) {
+<a name="l00017"></a>00017     timespec temp;
+<a name="l00018"></a>00018     <span class="keywordflow">if</span>((end.tv_nsec - start.tv_nsec) &lt; 0) {
+<a name="l00019"></a>00019         temp.tv_sec = end.tv_sec - start.tv_sec - 1;
+<a name="l00020"></a>00020         temp.tv_nsec = 1000000000 + end.tv_nsec - start.tv_nsec;
+<a name="l00021"></a>00021     } <span class="keywordflow">else</span> {
+<a name="l00022"></a>00022         temp.tv_sec = end.tv_sec - start.tv_sec;
+<a name="l00023"></a>00023         temp.tv_nsec = end.tv_nsec - start.tv_nsec;    
+<a name="l00024"></a>00024     }   
+<a name="l00025"></a>00025     <span class="keywordflow">return</span> temp;
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="benchmark_8cpp.html#ac890ab13054cf73d6766e68d0e5e9f08">00028</a> <span class="keywordtype">void</span> <a class="code" href="benchmark_8hh.html#ac890ab13054cf73d6766e68d0e5e9f08" title="Definicja funkcji dokonujacej pomiaru czasu dzialania kazdego z algorytmow.">SearchTime</a>() 
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030         <a class="code" href="class_graph.html" title="Modeluje pojecie grafu i metod z nim zwiazanych.">Graph</a> Graph1;
+<a name="l00031"></a>00031         srand(time(0));
+<a name="l00032"></a>00032         <span class="keyword">struct </span>timespec time1, time2;
+<a name="l00033"></a>00033         Graph1.<a class="code" href="class_graph.html#aac0f7723a19a1b09597906a7172217cc" title="Metoda pozwalajaca na wczytanie grafu do programu.">Load</a>(<span class="stringliteral">&quot;dane/graph11.txt&quot;</span>);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00036"></a>00036         Graph1.<a class="code" href="class_graph.html#a9cd1afb9cdcea77044503c3229b14a16" title="Metoda pozwalajaca na wyznaczenie drogi miedzy dwoma wierzcholkami.">A_Star</a>(<span class="charliteral">&#39;C&#39;</span>,<span class="charliteral">&#39;E&#39;</span>);
+<a name="l00037"></a>00037         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00038"></a>00038         cout &lt;&lt; <span class="stringliteral">&quot;SEARCH TIME: &quot;</span> &lt;&lt;  (double)<a class="code" href="benchmark_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000000 &lt;&lt; <span class="stringliteral">&quot; ms&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00041"></a>00041         Graph1.<a class="code" href="class_graph.html#ae56fbf3022962ae36addac05488f1f13" title="Metoda pozwalajaca na przeszukiwanie grafu w głąb.">DFS</a>(<span class="charliteral">&#39;C&#39;</span>);
+<a name="l00042"></a>00042         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00043"></a>00043         cout &lt;&lt; <span class="stringliteral">&quot;SEARCH TIME: &quot;</span> &lt;&lt;  (double)<a class="code" href="benchmark_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000000 &lt;&lt; <span class="stringliteral">&quot; ms&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time1); 
+<a name="l00046"></a>00046         Graph1.<a class="code" href="class_graph.html#ae82df06986635fac139c1196d206ab60" title="Metoda pozwalajaca na przeszukiwanie grafu wszerz.">BFS</a>(<span class="charliteral">&#39;C&#39;</span>);
+<a name="l00047"></a>00047         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &amp;time2);
+<a name="l00048"></a>00048         cout &lt;&lt; <span class="stringliteral">&quot;SEARCH TIME: &quot;</span> &lt;&lt; (double)<a class="code" href="benchmark_8hh.html#a5959b2e100c03e81bd1c5049adf30165" title="Definicja funkcji obliczajacej roznice pomiedzy dwoma strukturami czasu.">diff</a>(time1, time2).tv_nsec/1000000 &lt;&lt; <span class="stringliteral">&quot; ms&quot;</span> &lt;&lt; endl &lt;&lt; endl;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="benchmark_8cpp.html">benchmark.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Fri May 23 2014 18:58:34 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('main_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="lcs_8hh.html" title="Definicja modułu odpowiedzialnego za implementacje algorytmu NWP.">lcs.hh</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00010"></a><a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00010</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012         <a class="code" href="class_longest_common_subsequence.html" title="Modeluje pojecie algorytmu NWP i metod z nim związanych.">LongestCommonSubsequence</a> L1, L2;
+<a name="l00013"></a>00013         L1.<a class="code" href="class_longest_common_subsequence.html#a9f2b185e6776d541a5509cb63856b895" title="Metoda wczytująca dwa ciągi z których będzie wyznaczany najdłuższy wspólny podciąg.">AddSequence</a>(<span class="stringliteral">&quot;ALIBABA&quot;</span> , <span class="stringliteral">&quot;KALIMALBA&quot;</span>);
+<a name="l00014"></a>00014         L1.<a class="code" href="class_longest_common_subsequence.html#a48f58609bfb9e1eb05309fae485e8996" title="Metoda odpowiedzialna za wyświetlenie wczytanych ciągów.">PrintLoadedSequence</a>();       
+<a name="l00015"></a>00015         L1.<a class="code" href="class_longest_common_subsequence.html#ab810567627343d820f6ad55f46f363fe" title="Metoda odpowiedzialna za tworzenie tablicy i wyznaczenie długości NWP.">LCS</a>();
+<a name="l00016"></a>00016         L1.<a class="code" href="class_longest_common_subsequence.html#ab0c4bd01aee23e6f091bb109c7ea9a2e" title="Metoda odpowiedzialna za wyświetlenie wyznaczonego NWP.">PrintSubsequence</a>();
+<a name="l00017"></a>00017         L1.<a class="code" href="class_longest_common_subsequence.html#a9ee7d444145c726ebf086c7be36e7826" title="Metoda odpowiedzialna za wyświetlenie obliczonej tablicy NWP.">PrintTable</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019         L2.<a class="code" href="class_longest_common_subsequence.html#a9f2b185e6776d541a5509cb63856b895" title="Metoda wczytująca dwa ciągi z których będzie wyznaczany najdłuższy wspólny podciąg.">AddSequence</a>(<span class="stringliteral">&quot;LABRADOR&quot;</span> , <span class="stringliteral">&quot;RABARBAR&quot;</span>);
+<a name="l00020"></a>00020         L2.<a class="code" href="class_longest_common_subsequence.html#a48f58609bfb9e1eb05309fae485e8996" title="Metoda odpowiedzialna za wyświetlenie wczytanych ciągów.">PrintLoadedSequence</a>();       
+<a name="l00021"></a>00021         L2.<a class="code" href="class_longest_common_subsequence.html#ab810567627343d820f6ad55f46f363fe" title="Metoda odpowiedzialna za tworzenie tablicy i wyznaczenie długości NWP.">LCS</a>();
+<a name="l00022"></a>00022         L2.<a class="code" href="class_longest_common_subsequence.html#ab0c4bd01aee23e6f091bb109c7ea9a2e" title="Metoda odpowiedzialna za wyświetlenie wyznaczonego NWP.">PrintSubsequence</a>();
+<a name="l00023"></a>00023         L2.<a class="code" href="class_longest_common_subsequence.html#a9ee7d444145c726ebf086c7be36e7826" title="Metoda odpowiedzialna za wyświetlenie obliczonej tablicy NWP.">PrintTable</a>();
+<a name="l00024"></a>00024         
+<a name="l00025"></a>00025         <span class="keywordflow">return</span> 0;
+<a name="l00026"></a>00026 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Mon May 26 2014 22:18:14 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+/*!
+  \mainpage  Najdłuższy wspólny podciąg.
+  \author Konrad Łakomy
+  \date 26.05.2014
+  \version 1.0
+
+   Program zawiera implementacje algorytmu wyznaczającego najdłuższy wspólny podciąg znaków, \n
+   które występują w tej samej kolejności w dwóch porównywanych łańcuchach. \n 
+   Elementy podciągów nie muszą przy tym leżeć obok siebie (tym różni się ten problem od problemu najdłuższego wspólnego podłańcucha).
+
+
+\n \n 
+	Zaimplementowane metody to: \n \n
+	- void AddSequence(string sequence1, string sequence2)
+
+	- int LCS() \n
+
+	- void PrintLoadedSequence() \n
+
+	- void PrintTable() \n
+
+	- void PrintSubsequence() \n
+ */
