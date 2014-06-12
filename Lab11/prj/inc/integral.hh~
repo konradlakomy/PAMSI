@@ -1,0 +1,195 @@
+#ifndef INTEGRAL
+	#define INTEGRAL
+
+	#include <cmath>
+	#include <string>
+	#include <sstream>
+	#include <iostream>
+	#include <string>
+	using namespace std;
+
+/*!
+ * \file Deklaracja modułu zawierającego obiekty umożliwiające liczenie całek.
+ * \brief Plik zawiera deklaracje klas oraz metod odpowiedzialnych za wykonywanie podstawowych operacji na całkach.
+ *
+ */
+
+	const double EPS = 0.000001;
+
+/*!
+ * \brief Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.
+ *
+ *  Deklaracja klasy ArithmExpr opisujacej wyrażenie arytmetyczne z którego liczona jest całka.
+ *  Jest to klasa podstawowa zawierająca metody wirtualne odpowiedzialne za wykonywanie operacji całkowania. 
+ *
+ */
+
+	class ArithmExpr {
+		public:
+/*!
+ * \brief Metoda wirtualna odpowiedzialna za obliczanie całki z wyrażenia arytmetycznego.
+ * 
+ * \return Metoda zwraca zcałkowane wyrażenie arytmetyczne.
+ *
+ */
+			virtual ArithmExpr* eval() = 0;
+
+/*!
+ * \brief Metoda wirtualna odpowiedzialna za wyświetlenie wyrażenia arytmetycznego.
+ * 
+ * \return Metoda wyświetla na ekranie wyrażenie arytmetyczne
+ *
+ */
+			virtual string toString() = 0;
+
+/*!
+ * \brief Metoda wirtualna odpowiedzialna za określenie typu wyrażenia arytmetycznego
+ * 
+ * \return Metoda zwraca typ wyrażenia arytmetycznego.
+ *
+ */
+			virtual int type() = 0;
+	};
+/*!
+ * \brief Modeluje pojecie stałej i metod z nią związanych
+ *
+ *  Deklaracja klasy Const opisujacej obiekt stałej w całkowaniu.
+ *
+ */
+	class Const: public ArithmExpr {
+		private:
+			double val;
+			int state;
+
+		public:
+			Const(double , int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+/*!
+ * \brief Modeluje pojecie zmiennej i metod z nią związanych
+ *
+ *  Deklaracja klasy Var opisujacej obiekt zmiennej w całkowaniu.
+ *
+ */
+	class Var: public ArithmExpr {
+		private:
+			int state;
+
+		public:
+			Var(int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie operacji dodawania i metod z nią związanych
+ *
+ *  Deklaracja klasy Add opisujacej operacje dodawania w całkowaniu.
+ *
+ */
+	class Add: public ArithmExpr {
+		private:
+			ArithmExpr* arg1;
+			ArithmExpr* arg2;
+			int state;
+
+		public:
+			Add(ArithmExpr*, ArithmExpr* , int );
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie operacji mnożenia i metod z nią związanych
+ *
+ *  Deklaracja klasy Mult opisujacej operacje mnożenia w całkowaniu.
+ *
+ */
+	class Mult: public ArithmExpr {
+		private:
+			ArithmExpr* arg1;
+			ArithmExpr* arg2;
+			int state;
+
+		public:
+			Mult(ArithmExpr*, ArithmExpr* , int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie operacji potęgowania i metod z nią związanych
+ *
+ *  Deklaracja klasy Power opisujacej operacje potęgowania w całkowaniu.
+ *
+ */
+	class Power: public ArithmExpr {
+		private:
+			ArithmExpr* arg1;
+			double arg2;
+			int state;
+
+		public:
+			Power(ArithmExpr*, double, int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie fukcji sinus i metod z nią związanych
+ *
+ *  Deklaracja klasy Sin opisujacej funkcje sinus w całkowaniu.
+ *
+ */
+	class Sin: public ArithmExpr {
+		private:
+			ArithmExpr* arg;
+			int state;
+
+		public:
+			Sin(ArithmExpr*, int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie fukcji cosinus i metod z nią związanych
+ *
+ *  Deklaracja klasy Cos opisujacej funkcje cosinus w całkowaniu.
+ *
+ */
+	class Cos: public ArithmExpr {
+		private:
+			ArithmExpr* arg;
+			int state;
+
+		public:
+			Cos(ArithmExpr* ,int);
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+/*!
+ * \brief Modeluje pojecie operacji lub obiektu ktorego nie mozna zcałkować.  
+ *
+ *  Deklaracja klasy Nothing opisujacej operacje niezdefiniowane w programie. 
+ *
+ */
+	class Nothing: public ArithmExpr {
+		public:
+			Nothing();
+			ArithmExpr* eval();
+			string toString();
+			int type();
+	};
+
+
+#endif

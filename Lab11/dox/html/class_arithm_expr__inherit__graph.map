@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych." alt="" coords="5,83,51,112"/>
+<area shape="rect" id="node5" href="$class_const.html" title="Modeluje pojecie stałej i metod z nią związanych." alt="" coords="75,83,131,112"/>
+<area shape="rect" id="node7" href="$class_cos.html" title="Modeluje pojecie fukcji cosinus i metod z nią związanych." alt="" coords="155,83,200,112"/>
+<area shape="rect" id="node9" href="$class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych." alt="" coords="224,83,269,112"/>
+<area shape="rect" id="node11" href="$class_nothing.html" title="Modeluje pojecie operacji lub obiektu ktorego nie mozna zcałkować." alt="" coords="293,83,360,112"/>
+<area shape="rect" id="node13" href="$class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych." alt="" coords="384,83,443,112"/>
+<area shape="rect" id="node15" href="$class_sin.html" title="Modeluje pojecie fukcji sinus i metod z nią związanych." alt="" coords="467,83,507,112"/>
+<area shape="rect" id="node17" href="$class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych." alt="" coords="531,83,573,112"/>
+</map>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy integral.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('integral_8hh.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">integral.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="integral_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef INTEGRAL</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">        #define INTEGRAL</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">        #include &lt;cmath&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">        #include &lt;string&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">        #include &lt;sstream&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">        #include &lt;iostream&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">        #include &lt;string&gt;</span>
+<a name="l00009"></a>00009         <span class="keyword">using namespace </span>std;
+<a name="l00010"></a>00010 
+<a name="l00019"></a><a class="code" href="integral_8hh.html#afe01386a82fedc016455a43c20280a97">00019</a>         <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="integral_8hh.html#afe01386a82fedc016455a43c20280a97">EPS</a> = 0.000001;
+<a name="l00020"></a>00020 
+<a name="l00029"></a><a class="code" href="class_arithm_expr.html">00029</a>         <span class="keyword">class </span><a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00030"></a>00030                 <span class="keyword">public</span>:
+<a name="l00037"></a>00037                         <span class="keyword">virtual</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval() = 0;
+<a name="l00038"></a>00038 
+<a name="l00045"></a>00045                         <span class="keyword">virtual</span> <span class="keywordtype">string</span> toString() = 0;
+<a name="l00046"></a>00046 
+<a name="l00053"></a>00053                         <span class="keyword">virtual</span> <span class="keywordtype">int</span> type() = 0;
+<a name="l00054"></a>00054         };
+<a name="l00061"></a><a class="code" href="class_const.html">00061</a>         <span class="keyword">class </span><a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00062"></a>00062                 <span class="keyword">private</span>:
+<a name="l00063"></a><a class="code" href="class_const.html#a98c4887168cfc46645fae4bbcb6cf41a">00063</a>                         <span class="keywordtype">double</span> <a class="code" href="class_const.html#a98c4887168cfc46645fae4bbcb6cf41a">val</a>;
+<a name="l00064"></a><a class="code" href="class_const.html#a46e24971b21923aee1dc4db186bc62e5">00064</a>                         <span class="keywordtype">int</span> <a class="code" href="class_const.html#a46e24971b21923aee1dc4db186bc62e5">state</a>;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066                 <span class="keyword">public</span>:
+<a name="l00067"></a>00067                         <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(<span class="keywordtype">double</span> , <span class="keywordtype">int</span>);
+<a name="l00068"></a>00068                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00069"></a>00069                         <span class="keywordtype">string</span> toString();
+<a name="l00070"></a>00070                         <span class="keywordtype">int</span> type();
+<a name="l00071"></a>00071         };
+<a name="l00078"></a><a class="code" href="class_var.html">00078</a>         <span class="keyword">class </span><a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00079"></a>00079                 <span class="keyword">private</span>:
+<a name="l00080"></a><a class="code" href="class_var.html#a5f48f7e3f66305d3472fb69294e7d02f">00080</a>                         <span class="keywordtype">int</span> <a class="code" href="class_var.html#a5f48f7e3f66305d3472fb69294e7d02f">state</a>;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082                 <span class="keyword">public</span>:
+<a name="l00083"></a>00083                         <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(<span class="keywordtype">int</span>);
+<a name="l00084"></a>00084                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00085"></a>00085                         <span class="keywordtype">string</span> toString();
+<a name="l00086"></a>00086                         <span class="keywordtype">int</span> type();
+<a name="l00087"></a>00087         };
+<a name="l00088"></a>00088 
+<a name="l00095"></a><a class="code" href="class_add.html">00095</a>         <span class="keyword">class </span><a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00096"></a>00096                 <span class="keyword">private</span>:
+<a name="l00097"></a><a class="code" href="class_add.html#a6f8f5904175ff2262b023095682f8a96">00097</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_add.html#a6f8f5904175ff2262b023095682f8a96">arg1</a>;
+<a name="l00098"></a><a class="code" href="class_add.html#a5d0f3facb4984dacac3123a0a8f6caff">00098</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_add.html#a5d0f3facb4984dacac3123a0a8f6caff">arg2</a>;
+<a name="l00099"></a><a class="code" href="class_add.html#ae96de71b6322f24cd929903a30bfc1a1">00099</a>                         <span class="keywordtype">int</span> <a class="code" href="class_add.html#ae96de71b6322f24cd929903a30bfc1a1">state</a>;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101                 <span class="keyword">public</span>:
+<a name="l00102"></a>00102                         <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>(<a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>*, <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* , <span class="keywordtype">int</span> );
+<a name="l00103"></a>00103                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00104"></a>00104                         <span class="keywordtype">string</span> toString();
+<a name="l00105"></a>00105                         <span class="keywordtype">int</span> type();
+<a name="l00106"></a>00106         };
+<a name="l00107"></a>00107 
+<a name="l00114"></a><a class="code" href="class_mult.html">00114</a>         <span class="keyword">class </span><a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00115"></a>00115                 <span class="keyword">private</span>:
+<a name="l00116"></a><a class="code" href="class_mult.html#a25720db54fa185d1e81bfd1399a9828f">00116</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_mult.html#a25720db54fa185d1e81bfd1399a9828f">arg1</a>;
+<a name="l00117"></a><a class="code" href="class_mult.html#a2449894103b448df927e93e596db0293">00117</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_mult.html#a2449894103b448df927e93e596db0293">arg2</a>;
+<a name="l00118"></a><a class="code" href="class_mult.html#a8de1160250a34ab9313979c158e1dc5f">00118</a>                         <span class="keywordtype">int</span> <a class="code" href="class_mult.html#a8de1160250a34ab9313979c158e1dc5f">state</a>;
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120                 <span class="keyword">public</span>:
+<a name="l00121"></a>00121                         <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a>(<a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>*, <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* , <span class="keywordtype">int</span>);
+<a name="l00122"></a>00122                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00123"></a>00123                         <span class="keywordtype">string</span> toString();
+<a name="l00124"></a>00124                         <span class="keywordtype">int</span> type();
+<a name="l00125"></a>00125         };
+<a name="l00126"></a>00126 
+<a name="l00133"></a><a class="code" href="class_power.html">00133</a>         <span class="keyword">class </span><a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00134"></a>00134                 <span class="keyword">private</span>:
+<a name="l00135"></a><a class="code" href="class_power.html#ad09d45e1fbb71a79306a1b71a21690ac">00135</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_power.html#ad09d45e1fbb71a79306a1b71a21690ac">arg1</a>;
+<a name="l00136"></a><a class="code" href="class_power.html#a84f452626fea55d1780abdca6160efd9">00136</a>                         <span class="keywordtype">double</span> <a class="code" href="class_power.html#a84f452626fea55d1780abdca6160efd9">arg2</a>;
+<a name="l00137"></a><a class="code" href="class_power.html#a5716800a24968e69600f0160c965ae26">00137</a>                         <span class="keywordtype">int</span> <a class="code" href="class_power.html#a5716800a24968e69600f0160c965ae26">state</a>;
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139                 <span class="keyword">public</span>:
+<a name="l00140"></a>00140                         <a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a>(<a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>*, <span class="keywordtype">double</span>, <span class="keywordtype">int</span>);
+<a name="l00141"></a>00141                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00142"></a>00142                         <span class="keywordtype">string</span> toString();
+<a name="l00143"></a>00143                         <span class="keywordtype">int</span> type();
+<a name="l00144"></a>00144         };
+<a name="l00145"></a>00145 
+<a name="l00152"></a><a class="code" href="class_sin.html">00152</a>         <span class="keyword">class </span><a class="code" href="class_sin.html" title="Modeluje pojecie fukcji sinus i metod z nią związanych.">Sin</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00153"></a>00153                 <span class="keyword">private</span>:
+<a name="l00154"></a><a class="code" href="class_sin.html#ad00e7955df6c7bd1e0b9720349e5ba25">00154</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_sin.html#ad00e7955df6c7bd1e0b9720349e5ba25">arg</a>;
+<a name="l00155"></a><a class="code" href="class_sin.html#abe1302d7857a84466ed0f9bf0f489ac2">00155</a>                         <span class="keywordtype">int</span> <a class="code" href="class_sin.html#abe1302d7857a84466ed0f9bf0f489ac2">state</a>;
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157                 <span class="keyword">public</span>:
+<a name="l00158"></a>00158                         <a class="code" href="class_sin.html" title="Modeluje pojecie fukcji sinus i metod z nią związanych.">Sin</a>(<a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>*, <span class="keywordtype">int</span>);
+<a name="l00159"></a>00159                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00160"></a>00160                         <span class="keywordtype">string</span> toString();
+<a name="l00161"></a>00161                         <span class="keywordtype">int</span> type();
+<a name="l00162"></a>00162         };
+<a name="l00163"></a>00163 
+<a name="l00170"></a><a class="code" href="class_cos.html">00170</a>         <span class="keyword">class </span><a class="code" href="class_cos.html" title="Modeluje pojecie fukcji cosinus i metod z nią związanych.">Cos</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00171"></a>00171                 <span class="keyword">private</span>:
+<a name="l00172"></a><a class="code" href="class_cos.html#a081fb779cc4dab48897196b49dbbbdce">00172</a>                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* <a class="code" href="class_cos.html#a081fb779cc4dab48897196b49dbbbdce">arg</a>;
+<a name="l00173"></a><a class="code" href="class_cos.html#af002106b8061b6d6750e1d0138916b12">00173</a>                         <span class="keywordtype">int</span> <a class="code" href="class_cos.html#af002106b8061b6d6750e1d0138916b12">state</a>;
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175                 <span class="keyword">public</span>:
+<a name="l00176"></a>00176                         <a class="code" href="class_cos.html" title="Modeluje pojecie fukcji cosinus i metod z nią związanych.">Cos</a>(<a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* ,<span class="keywordtype">int</span>);
+<a name="l00177"></a>00177                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00178"></a>00178                         <span class="keywordtype">string</span> toString();
+<a name="l00179"></a>00179                         <span class="keywordtype">int</span> type();
+<a name="l00180"></a>00180         };
+<a name="l00181"></a>00181 
+<a name="l00188"></a><a class="code" href="class_nothing.html">00188</a>         <span class="keyword">class </span><a class="code" href="class_nothing.html" title="Modeluje pojecie operacji lub obiektu ktorego nie mozna zcałkować.">Nothing</a>: <span class="keyword">public</span> <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a> {
+<a name="l00189"></a>00189                 <span class="keyword">public</span>:
+<a name="l00190"></a>00190                         <a class="code" href="class_nothing.html" title="Modeluje pojecie operacji lub obiektu ktorego nie mozna zcałkować.">Nothing</a>();
+<a name="l00191"></a>00191                         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* eval();
+<a name="l00192"></a>00192                         <span class="keywordtype">string</span> toString();
+<a name="l00193"></a>00193                         <span class="keywordtype">int</span> type();
+<a name="l00194"></a>00194         };
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="integral_8hh.html">integral.hh</a>      </li>
+
+    <li class="footer">Wygenerowano Tue Jun 10 2014 22:21:37 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

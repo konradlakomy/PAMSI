@@ -1,0 +1,22 @@
+/*!
+  \mainpage  Liczenie całek nieoznaczonych.
+  \author Justyna Klijewska & Konrad Łakomy
+  \date 12.06.2014
+  \version 1.0
+
+	Program służy do obliczania całek nieoznaczonych.
+
+\n \n 
+	Zaimplementowane klasy to: \n \n
+	- class ArithmExpr \n
+
+	- class Const \n
+
+	- class Var \n
+
+	- class Add \n
+
+	- class Mult \n
+
+	- class Power \n
+ */

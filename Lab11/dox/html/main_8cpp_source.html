@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+<title>Plik źródłowy main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('main_8cpp.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="integral_8hh.html" title="Deklaracja modułu zawierającego obiekty umożliwiające liczenie całek.">integral.hh</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00004"></a>00004 <span class="keyword">using namespace </span>std;
+<a name="l00005"></a>00005 
+<a name="l00013"></a><a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00013</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015   <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* expr1 = <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>( <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>( <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a> ( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(8.0, 0) , <span class="keyword">new</span> <a class="code" href="class_sin.html" title="Modeluje pojecie fukcji sinus i metod z nią związanych.">Sin</a>(<span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , 0), 0) , <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a> ( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(12.0, 0) , <span class="keyword">new</span> <a class="code" href="class_cos.html" title="Modeluje pojecie fukcji cosinus i metod z nią związanych.">Cos</a>(<span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , 0 ) , 0 ) ,0 ) , <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a>( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(5.0, 0) , <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(3.0, 0) , <span class="keyword">new</span> <a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a>( <span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , 2.0 , 0 ) , 0 ) , 0 ) , 0  );
+<a name="l00016"></a>00016         expr1-&gt;<a class="code" href="class_arithm_expr.html#a2db2e768238669c4dbd59f51c5a1c5de" title="Metoda wirtualna odpowiedzialna za obliczanie całki z wyrażenia arytmetycznego.">eval</a>(); cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; 
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018         cout &lt;&lt; <span class="stringliteral">&quot;-----------------------------------------------------------------&quot;</span> &lt;&lt; endl;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020         <a class="code" href="class_arithm_expr.html" title="Modeluje pojecie wyrażenia arytmetycznego i metod z nim związanych.">ArithmExpr</a>* expr2 = <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a> ( <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a> ( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(5.0 , 0 ) , <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a>( <span class="keyword">new</span> <a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a>(<span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , -3.0 , 0) , <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a>( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(8.0 , 0) , <span class="keyword">new</span> <a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a>( <span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , 5.0 , 0 ) , 0 ) , 0 ), 0 ) , <span class="keyword">new</span> <a class="code" href="class_mult.html" title="Modeluje pojecie operacji mnożenia i metod z nią związanych.">Mult</a> ( <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(2.0 , 0) , <span class="keyword">new</span> <a class="code" href="class_power.html" title="Modeluje pojecie operacji potęgowania i metod z nią związanych.">Power</a> ( <span class="keyword">new</span> <a class="code" href="class_add.html" title="Modeluje pojecie operacji dodawania i metod z nią związanych.">Add</a> ( <span class="keyword">new</span> <a class="code" href="class_var.html" title="Modeluje pojecie zmiennej i metod z nią związanych.">Var</a>(0) , <span class="keyword">new</span> <a class="code" href="class_const.html" title="Modeluje pojecie stałej i metod z nią związanych.">Const</a>(1.0 , 0 ) , 0 ) , 4.0 , 0 ) , 0 ) , 0 ); 
+<a name="l00021"></a>00021         expr2-&gt;<a class="code" href="class_arithm_expr.html#a2db2e768238669c4dbd59f51c5a1c5de" title="Metoda wirtualna odpowiedzialna za obliczanie całki z wyrażenia arytmetycznego.">eval</a>(); cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023         <span class="keywordflow">return</span> 0;
+<a name="l00024"></a>00024 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a>      </li>
+
+    <li class="footer">Wygenerowano Tue Jun 10 2014 22:21:37 programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
